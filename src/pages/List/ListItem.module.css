@@ -1,0 +1,250 @@
+.itemContainer {
+  display: grid;
+  grid-template-columns: 60px 64px minmax(150px, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  border-radius: var(--border-radius);
+  color: var(--text-color);
+  border-bottom: 1px solid transparent;
+}
+
+.noRank {
+  grid-template-columns: 64px minmax(150px, 1fr) auto;
+}
+
+.rightActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.durationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 45px;
+}
+
+.moreMenuContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.moreButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.moreButton:hover {
+  color: var(--text-color);
+  background-color: color-mix(in srgb, var(--text-color) 10%, transparent);
+}
+
+.rank {
+  font-size: 1.5rem; /* Bigger rank */
+  font-weight: 600;
+  color: var(--text-secondary-color);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.rankHash {
+  font-size: 1rem;
+  color: var(--text-secondary-color);
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.rankChange {
+  font-size: 0.7rem;
+}
+
+.up {
+  color: var(--rating-high);
+  font-size: 1.2rem;
+  transform: translateY(6px);
+}
+
+.down {
+  color: var(--rating-low);
+  font-size: 1.2rem;
+  transform: translateY(-2px);
+}
+
+.same {
+  color: var(--text-secondary-color);
+  font-size: 0.7rem;
+}
+
+.coverLink {
+  display: flex;
+  text-decoration: none;
+}
+
+.cover {
+  width: 54px;
+  height: 54px;
+  border-radius: 4px;
+  object-fit: cover;
+  background-color: var(--dark-bg-color);
+}
+
+.coverLink:hover ~ .infoContainer .title {
+  text-decoration: underline;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  gap: 4px;
+}
+
+.detailedTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.explicitIcon {
+  color: var(--text-secondary-color);
+  font-size: 1.1rem;
+}
+
+.artist {
+  font-size: 0.95rem;
+  color: var(--text-secondary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+
+.artist:hover {
+  text-decoration: underline;
+}
+
+.trend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+}
+
+.listens {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary-color);
+  text-align: right;
+  min-width: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.compact {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0;
+  border-bottom: none;
+}
+
+.compact .coverLink {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: block;
+}
+
+.compact .cover {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.compact .infoContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 3.8rem;
+}
+
+.compactTitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+.compact .artist {
+  font-size: 0.8rem;
+  color: var(--text-secondary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .itemContainer {
+    grid-template-columns: 40px 50px 1fr auto;
+    gap: 10px;
+  }
+
+  .noRank {
+    grid-template-columns: 50px 1fr auto;
+  }
+
+  .rightActions {
+    gap: 8px;
+  }
+
+  .durationContainer {
+    display: none;
+  }
+
+  .cover {
+    width: 48px;
+    height: 48px;
+  }
+
+  .rank {
+    font-size: 1.2rem;
+  }
+
+  .listens {
+    display: none;
+  }
+
+  .infoContainer {
+    min-width: 0; /* Enable truncation in grid */
+  }
+}

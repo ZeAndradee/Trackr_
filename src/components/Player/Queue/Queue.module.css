@@ -1,0 +1,230 @@
+.queueBody {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.queueBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.queueBody::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--text-color) 20%, transparent);
+  border-radius: 3px;
+}
+
+.emptyQueue {
+  color: var(--text-color);
+  font-size: 0.92rem;
+  padding: 16px 4px;
+  text-align: center;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sectionLabel {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.sectionLabelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sectionLabelGroup {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.dragHint {
+  font-size: 0.62rem;
+  color: var(--text-secondary-color);
+  opacity: 0.7;
+}
+
+.clearBtn {
+  border: none;
+  background: none;
+  color: var(--text-secondary-color);
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease;
+}
+
+.clearBtn:hover {
+  color: var(--text-color);
+  background: var(--menu-hover);
+}
+
+.nextList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.queueItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  min-width: 0;
+}
+
+.queueItemDragOver {
+  border-radius: 0;
+  box-shadow: inset 0 2px 0 var(--primary-color);
+}
+
+.queueItemUnavailable {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.queueItemUnavailableWrapper {
+  display: block;
+}
+
+.queueArtWrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.queueArt {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.queueArtWrap:hover .playOverlay {
+  opacity: 1;
+}
+
+.playOverlay:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.queueMeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+  gap: 1px;
+}
+
+.queueTrackTitle {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+
+.queueTrackTitle:hover {
+  text-decoration: underline;
+}
+
+.queueTrackArtist {
+  font-size: 0.78rem;
+  color: var(--text-secondary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.moreBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0;
+  flex-shrink: 0;
+  opacity: 0;
+  transition:
+    color 0.15s ease,
+    background 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.queueItem:hover .moreBtn {
+  opacity: 1;
+}
+
+.moreBtn:hover {
+  color: var(--text-color);
+  background: var(--menu-hover);
+}
+
+.recommendationsEmpty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: 28px 16px;
+  min-height: 140px;
+}
+
+.recommendationsEmptyIcon {
+  color: var(--text-secondary-color);
+  opacity: 0.4;
+}
+
+.recommendationsEmptyText {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.recommendationsEmptyHint {
+  font-size: 0.72rem;
+  color: var(--text-secondary-color);
+}

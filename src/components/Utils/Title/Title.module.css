@@ -1,0 +1,33 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  color: var(--text-color);
+  border-bottom: 1px solid rgba(40, 113, 255, 0.2);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: var(--primary-color);
+  border-radius: 1px;
+}
+
+.more {
+  font-size: var(--font-size-minor);
+  font-weight: var(--font-weight-regular);
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.more:hover {
+  opacity: 0.8;
+}

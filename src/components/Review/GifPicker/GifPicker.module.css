@@ -1,0 +1,134 @@
+.pickerPanel {
+  background-color: var(--dark-bg-color);
+  border-radius: var(--border-radius2);
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  max-height: 80vh;
+  height: 520px;
+  overflow: hidden;
+  border: 1px solid var(--dark-border);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  animation: slideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.searchBar {
+  padding: 10px 12px;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--dark-border2);
+  border-radius: var(--border-radius);
+  padding: 7px 12px;
+  color: var(--text-color);
+  font-size: 0.875rem;
+
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+.searchInput::placeholder {
+  color: var(--text-secondary-color);
+}
+
+.gifGridScroll {
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  padding: 8px;
+}
+
+.gifGridScroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.gifGridScroll::-webkit-scrollbar-thumb {
+  background: var(--text-secondary-color);
+  border-radius: 6px;
+}
+
+.gifGrid {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.gifCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gifItem {
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  transition:
+    border-color 0.15s,
+    opacity 0.15s;
+  width: 100%;
+}
+
+.gifItem:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  opacity: 0.9;
+}
+
+.gifThumb {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.statusMessage {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--text-secondary-color);
+  font-size: 0.875rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poweredBy {
+  padding: 6px 12px;
+  flex-shrink: 0;
+  opacity: 1;
+}
+
+.poweredByLogo {
+  height: 16px;
+  display: block;
+  margin-left: auto;
+}
+
+.loadingMore {
+  text-align: center;
+  padding: 12px 0;
+  color: var(--text-secondary-color);
+  font-size: 0.8rem;
+}

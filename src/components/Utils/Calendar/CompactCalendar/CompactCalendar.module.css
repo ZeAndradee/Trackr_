@@ -1,0 +1,181 @@
+.calendarContainer {
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--border-radius);
+  padding: 12px;
+  width: 240px;
+  box-shadow: var(--card-shadow);
+  user-select: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.currentMonthYear {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.currentMonthYear:hover {
+  background-color: var(--dark-border);
+}
+
+.navButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  color: var(--text-secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.navButton:hover {
+  background-color: var(--dark-border);
+  color: var(--text-color);
+}
+
+.daysOfWeek {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+}
+
+.dayOfWeek {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary-color);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.emptyCell {
+  height: 28px;
+}
+
+.cell {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.cell:hover {
+  background-color: var(--dark-border);
+}
+
+.cell.today {
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+}
+
+.cell.selected {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: var(--font-weight-bold);
+}
+
+.cell.selected:hover {
+  background-color: var(--primary-dark);
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background-color: transparent;
+}
+
+.disabledNav {
+  color: var(--dark-border);
+  cursor: not-allowed;
+}
+
+.disabledNav:hover {
+  background-color: transparent;
+  color: var(--dark-border);
+}
+
+.monthGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+  height: 200px;
+  align-items: center;
+}
+
+.yearGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+  height: 200px;
+  align-items: center;
+}
+
+.monthCell,
+.yearCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.monthCell:hover:not(.disabled),
+.yearCell:hover:not(.disabled) {
+  background-color: var(--dark-border);
+}
+
+.monthCell.selected,
+.yearCell.selected {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: var(--font-weight-bold);
+}
+
+.monthCell.selected:hover:not(.disabled),
+.yearCell.selected:hover:not(.disabled) {
+  background-color: var(--primary-dark);
+}
+
+.monthCell.disabled,
+.yearCell.disabled {
+  color: var(--dark-border);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.monthCell.disabled:hover,
+.yearCell.disabled:hover {
+  background-color: transparent;
+}

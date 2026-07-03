@@ -1,0 +1,16 @@
+.similarSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.similarTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.trackCoverRadius {
+  border-radius: 8px;
+}

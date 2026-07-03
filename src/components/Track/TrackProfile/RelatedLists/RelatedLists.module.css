@@ -1,0 +1,177 @@
+.listsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0 0 1rem 0;
+}
+
+.listsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.listsTitle {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+}
+
+.viewAll {
+  font-size: var(--font-size-minor);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary-color);
+  text-decoration: none;
+}
+
+.viewAll:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.listsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.listRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
+  border-radius: var(--border-radius2);
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5rem;
+  margin: -0.5rem;
+}
+
+.listRowContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.listRowHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.listRowTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  min-width: 0;
+}
+
+.listDescription {
+  font-size: var(--font-size-minor);
+  color: var(--text-secondary-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  max-width: 100%;
+  margin-top: 0.25rem;
+}
+
+.actionMenuWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+}
+
+.moreButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.moreButton:hover {
+  color: var(--text-color);
+  background: var(--hover-color);
+}
+
+.listRowName {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.listRowName:hover {
+  text-decoration: underline;
+}
+
+.listRowMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--font-size-minor);
+  color: var(--text-secondary-color);
+  font-weight: var(--font-weight-medium);
+  flex-shrink: 0;
+}
+
+.listRowMetaDivider {
+  opacity: 0.5;
+}
+
+.listCoversRow {
+  border: 2px solid transparent;
+}
+
+.listCoversRow:hover {
+  border-color: var(--text-color);
+}
+
+.listCoversLink {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  border-radius: var(--border-radius2);
+}
+
+.userLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.username {
+  text-decoration: none;
+}
+
+.username:hover {
+  text-decoration: underline;
+}

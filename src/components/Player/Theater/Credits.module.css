@@ -1,0 +1,58 @@
+.credits {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 4px 24px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 0;
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--text-color) 12%, transparent);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary-color);
+}
+
+.value {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.artistValue {
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+.linkValue {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  width: fit-content;
+}
+
+.linkValue:hover {
+  text-decoration: underline;
+}
+
+.genreTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.loading {
+  padding: 18px 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary-color);
+}

@@ -1,0 +1,223 @@
+.sidebarSection {
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+}
+
+.sidebarList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.reviewCard {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--dark-border);
+  cursor: pointer;
+}
+
+.reviewCard:hover {
+  opacity: 0.7;
+}
+
+.reviewCard:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.coverImage {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--cover-radius);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.headerInfo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  overflow: hidden;
+  flex: 1;
+}
+
+.trackName {
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: normal;
+  margin: 0;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.likedIcon {
+  color: #e91e63;
+  display: flex;
+  align-items: center;
+}
+
+.reviewContent {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: normal;
+  margin: 0;
+}
+
+.reviewGif {
+  width: 100%;
+  border-radius: var(--border-radius2);
+  object-fit: cover;
+}
+
+.emptyState {
+  color: var(--text-secondary-color);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Skeleton Styles */
+.skeletonTitle {
+  height: 24px;
+  width: 150px;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 0%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--cover-radius);
+}
+
+.skeletonList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeletonItem {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--border-radius2);
+  background-color: var(--skeleton-item-bg);
+}
+
+.skeletonHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skeletonImage {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--cover-radius);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 0%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skeletonText {
+  height: 14px;
+  width: 80%;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 0%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--cover-radius);
+}
+
+.skeletonTextSmall {
+  height: 12px;
+  width: 50%;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 0%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--cover-radius);
+}
+
+.skeletonContent {
+  height: 40px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 0%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--cover-radius);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebarSection {
+    max-width: 100%;
+  }
+}

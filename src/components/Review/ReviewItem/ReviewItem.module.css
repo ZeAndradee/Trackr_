@@ -1,0 +1,437 @@
+.reviewItemWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.reviewItem {
+  display: flex;
+  padding: 16px 0;
+  gap: 12px;
+  border-radius: var(--border-radius);
+}
+
+.commentItem {
+  cursor: default;
+}
+
+.commentItem:hover {
+  background-color: transparent;
+}
+
+.avatarColumn {
+  flex-shrink: 0;
+}
+
+.contentColumn {
+  flex: 1;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.statusWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.usernameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.displayName {
+  font-weight: 600;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.displayName:hover {
+  text-decoration: underline;
+}
+
+.username {
+  color: var(--text-secondary-color);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.reviewText p {
+  color: var(--text-color);
+  font-size: inherit;
+  line-height: 1.55;
+  margin-bottom: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.readMoreButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-left: 5px;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.readMoreButton:hover {
+  color: var(--primary-color);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.actions {
+  display: flex;
+  gap: 24px;
+}
+
+.date {
+  color: var(--text-secondary-color);
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.timestamp {
+  color: var(--text-secondary-color);
+  font-size: inherit;
+  opacity: 0.8;
+  text-wrap: nowrap;
+}
+
+.reviewedLink {
+  color: var(--text-secondary-color);
+  font-size: inherit;
+  opacity: 0.8;
+  text-decoration: none;
+  text-wrap: nowrap;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.actionButton:hover {
+  color: var(--primary-color);
+}
+
+.noBorder {
+  border-bottom: none;
+}
+
+.actionButton.liked {
+  color: #e91e63;
+}
+
+.menuContainer {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.menuMoreButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.menuMoreButton:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--text-color);
+}
+
+.reviewItem:hover > .contentColumn > .header > .menuContainer {
+  opacity: 1;
+}
+
+.reviewItem:hover > .contentColumn > .date {
+  opacity: 0.6;
+}
+
+/* Inline Comment Styles */
+.inlineCommentForm {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputContainer {
+  position: relative;
+  width: 100%;
+}
+
+.inlineInput {
+  width: 100%;
+  padding: 12px;
+  min-height: 80px;
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  outline: none;
+  resize: none;
+  font-family: inherit;
+  transition:
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+  overflow: hidden;
+}
+
+.inlineInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.charCounter {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  font-size: 0.75rem;
+  color: var(--text-secondary-color);
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.limitReached {
+  color: #ff5050;
+}
+
+.inlineInput:focus {
+  outline: none;
+  border-color: var(--dark-border3);
+  box-shadow: 0 0 0 4px transparent;
+  background-color: var(--dark-bg-color);
+}
+
+.inlineInput::placeholder {
+  color: var(--text-secondary-color);
+}
+
+.inlineActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.cancelButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 9px 18px;
+  border-radius: 0.75rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.cancelButton:hover {
+  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.repliesContainer {
+  margin-left: 3px;
+}
+
+.toggleRepliesButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 8px 0 16px 0px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.toggleRepliesButton:hover {
+  color: var(--text-color);
+}
+
+.toggleIcon {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+}
+
+.repliesList {
+  display: flex;
+  flex-direction: column;
+}
+
+.hideRepliesButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 10px 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hideRepliesButton:hover {
+  color: var(--text-color);
+}
+
+.reviewGif {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-top: 8px;
+  display: block;
+}
+
+.textareaWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.inlineInputWrapped {
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.inlineInputWrapped:focus {
+  box-shadow: none !important;
+  background: none !important;
+  border: none !important;
+}
+
+.pickerAnchor {
+  position: relative;
+}
+
+.inlineInputAutoGrow {
+  min-height: 40px;
+  max-height: 170px;
+  overflow-y: auto;
+}
+
+.gifButton {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  opacity: 0.4;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border-radius: 50%;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
+}
+
+.gifButton:hover,
+.gifButtonActive {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.gifPreview {
+  position: relative;
+  display: inline-block;
+  margin: 8px 0;
+}
+
+.gifPreviewImage {
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  display: block;
+}
+
+.removeGifButton {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: var(--overlay-bg);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.removeGifButton:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}

@@ -1,0 +1,96 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.contentContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem auto;
+  position: relative;
+  z-index: 2;
+}
+
+.feedLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.feedHero {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.feedSidebar {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  position: sticky;
+  top: var(--header-offset, 1rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-self: start;
+}
+
+.feedContent {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .contentContainer {
+    margin: 3rem auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .feedLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .feedSidebar {
+    position: static;
+    min-width: 0;
+    width: 100%;
+    overflow-x: clip;
+  }
+
+  .feedHero {
+    min-width: 0;
+  }
+
+  .feedContent {
+    min-width: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contentContainer {
+    margin: 1rem auto;
+    padding: 0 14px;
+  }
+
+  .feedLayout {
+    gap: 1.25rem;
+  }
+
+  .feedContent {
+    gap: 1.25rem;
+  }
+
+  .feedSidebar {
+    gap: 0.75rem;
+  }
+}

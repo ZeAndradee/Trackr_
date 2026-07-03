@@ -1,0 +1,73 @@
+.coversRow {
+  display: flex;
+  border-radius: var(--cover-radius);
+  width: min-content;
+}
+
+.coverWrapper {
+  width: var(--cover-size);
+  height: var(--cover-size);
+  border-radius: var(--cover-radius);
+  margin-left: var(--cover-overlap);
+  position: relative;
+  flex-shrink: 0;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.coverWrapper:first-child {
+  margin-left: 0;
+}
+
+.coverWrapper:not(:last-child) {
+  box-shadow: 4px 0 10px var(--list-cover-shadow, rgba(0, 0, 0, 0.55));
+}
+
+:global(:root.light-mode) .coverWrapper:not(:last-child) {
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.18);
+}
+
+.coverWrapper:nth-child(1) {
+  z-index: 7;
+}
+.coverWrapper:nth-child(2) {
+  z-index: 6;
+}
+.coverWrapper:nth-child(3) {
+  z-index: 5;
+}
+.coverWrapper:nth-child(4) {
+  z-index: 4;
+}
+.coverWrapper:nth-child(5) {
+  z-index: 3;
+}
+.coverWrapper:nth-child(6) {
+  z-index: 2;
+}
+.coverWrapper:nth-child(7) {
+  z-index: 1;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--cover-radius);
+  display: block;
+}
+
+.tooltip {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  display: block;
+}
+
+.emptyCover {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--cover-radius);
+  background-color: var(--dark-bg-color);
+  display: block;
+}

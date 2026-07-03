@@ -1,0 +1,78 @@
+.trackRowsContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.sectionContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.sectionIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(
+    135deg,
+    rgba(40, 113, 255, 0.15) 0%,
+    rgba(40, 113, 255, 0.05) 100%
+  );
+  border-radius: 50%;
+  margin-right: 12px;
+  color: var(--primary-color);
+}
+
+.sectionHeader h3 {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-semi-bold);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.headerViewMoreButton {
+  background: transparent;
+  color: var(--text-secondary-color);
+  border: 1px solid var(--dark-border);
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  margin-left: auto;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.headerViewMoreButton:hover {
+  background: rgba(58, 58, 58, 0.3);
+  color: var(--text-color);
+  border-color: var(--text-secondary-color);
+}
+
+.loadingMessage,
+.emptyMessage {
+  grid-column: 1 / -1;
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .trackRowsContainer {
+    padding: 0 1rem;
+    overflow: hidden; /* Prevent horizontal overflow of the container itself */
+  }
+}

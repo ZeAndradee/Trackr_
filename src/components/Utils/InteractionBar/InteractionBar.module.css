@@ -1,0 +1,67 @@
+.interactions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 24px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.actionButton:hover {
+  color: var(--text-color);
+}
+
+.actionButton.liked {
+  color: #e91e63;
+}
+
+.shareButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.shareButton:hover {
+  color: #fff;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+}
+
+.count {
+  display: inline-block;
+  animation: interactionCountAnimation 0.3s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes interactionCountAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

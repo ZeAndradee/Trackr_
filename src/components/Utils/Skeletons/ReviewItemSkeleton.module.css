@@ -1,0 +1,87 @@
+.skeletonWrapper {
+  display: flex;
+  padding: 16px;
+  gap: 12px;
+  width: 100%;
+  border-bottom: 1px solid var(--skeleton-border);
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--dark-border);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header {
+  height: 20px;
+  width: 150px;
+  background-color: var(--dark-border);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.textLine {
+  height: 16px;
+  width: 100%;
+  background-color: var(--dark-border);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.textLineShort {
+  width: 60%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.footerItem {
+  height: 16px;
+  width: 100px;
+  background-color: var(--dark-border);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--shimmer-bg) 50%,
+    transparent 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /search
+Disallow: /settings
+Disallow: /reset-password
+Disallow: /verify-email
+Disallow: /spotify/callback
+Disallow: /auth/google/callback
+
+User-agent: meta-webindexer
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+Sitemap: https://trackr.fm/sitemap.xml

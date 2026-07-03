@@ -1,0 +1,133 @@
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.greetingContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.greetingDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.greetingHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.greeting {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 1.9rem;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.username:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.friendsSummary {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  margin: 0;
+  opacity: 0.7;
+}
+
+.feedTabs {
+  display: flex;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.feedTab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.25rem;
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary-color);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.feedTab:hover {
+  color: var(--text-color);
+}
+
+.feedTabActive {
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-color);
+  border-bottom-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    padding: 0;
+    gap: 1.25rem;
+  }
+
+  .greetingContent {
+    gap: 1rem;
+  }
+
+  .greetingHeader {
+    overflow: hidden;
+  }
+
+  .greeting {
+    font-size: 1.4rem;
+    white-space: nowrap;
+  }
+
+  .username {
+    font-size: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .friendsSummary {
+    font-size: 0.82rem;
+  }
+
+  .feedTabs {
+    gap: 1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .feedTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .feedTab {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.2rem;
+    white-space: nowrap;
+  }
+}

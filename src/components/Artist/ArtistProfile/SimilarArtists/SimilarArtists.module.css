@@ -1,0 +1,146 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.title {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.7;
+}
+
+.pageIndicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--text-secondary-color);
+  opacity: 0.35;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageIndicator.activeIndicator {
+  width: 20px;
+  border-radius: 10px;
+  opacity: 1;
+  background: var(--text-color);
+}
+
+.rowWrapper {
+  position: relative;
+  container-type: inline-size;
+}
+
+.rowWrapper:hover .rowArrow {
+  opacity: 1;
+}
+
+.row {
+  width: 100%;
+}
+
+.rowArrow {
+  position: absolute;
+  top: calc((100cqi) / 10);
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--dark-bg-color);
+  color: var(--text-color);
+  cursor: pointer;
+  z-index: 11;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+.rowArrowLeft {
+  left: -16px;
+}
+
+.rowArrowRight {
+  right: -16px;
+}
+
+@media (max-width: 768px) {
+  .rowArrow {
+    top: calc((100cqi - 20px) / 6);
+  }
+}
+
+.artistItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.imageLink {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: block;
+}
+
+.circularCoverWrapper {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.circularCoverWrapper:hover {
+  border-color: var(--primary-color);
+}
+
+.circularCoverImage {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.circularCoverImage::after {
+  display: none;
+}
+
+.artistName {
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-color);
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: center;
+  justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}

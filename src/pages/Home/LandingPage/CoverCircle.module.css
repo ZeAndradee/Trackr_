@@ -1,0 +1,521 @@
+@property --glow-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+.section {
+  position: relative;
+  height: 100svh;
+  width: 100%;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.glow {
+  --glow-mix: 32%;
+  --glow-wash-mix: 14%;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    opacity 1.4s ease,
+    --glow-color 1.2s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fadeTop,
+.fadeBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 18vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fadeTop {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--background-color) 0%,
+    transparent 100%
+  );
+}
+
+.fadeBottom {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    var(--background-color) 0%,
+    transparent 100%
+  );
+}
+
+:global(.light-mode) .glow {
+  --glow-mix: 24%;
+  --glow-wash-mix: 10%;
+}
+
+.glowActive {
+  opacity: 1;
+}
+
+.wash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 120% 100% at 50% 60%,
+    color-mix(
+        in srgb,
+        var(--glow-color) var(--glow-wash-mix),
+        var(--background-color)
+      )
+      0%,
+    transparent 75%
+  );
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  will-change: transform;
+}
+
+.blobA {
+  width: 80vmax;
+  height: 80vmax;
+  left: -25vmax;
+  top: -20vmax;
+  background: radial-gradient(
+    circle,
+    color-mix(
+        in srgb,
+        var(--glow-color) var(--glow-mix),
+        var(--background-color)
+      )
+      0%,
+    transparent 65%
+  );
+  animation: driftA 16s ease-in-out infinite alternate;
+}
+
+.blobB {
+  width: 70vmax;
+  height: 70vmax;
+  right: -30vmax;
+  top: 5vmax;
+  background: radial-gradient(
+    circle,
+    color-mix(
+        in srgb,
+        var(--glow-color) var(--glow-mix),
+        var(--background-color)
+      )
+      0%,
+    transparent 65%
+  );
+  animation: driftB 20s ease-in-out infinite alternate;
+}
+
+.blobC {
+  width: 90vmax;
+  height: 90vmax;
+  left: 10vmax;
+  bottom: -50vmax;
+  background: radial-gradient(
+    circle,
+    color-mix(
+        in srgb,
+        var(--glow-color) var(--glow-mix),
+        var(--background-color)
+      )
+      0%,
+    transparent 60%
+  );
+  animation: driftC 24s ease-in-out infinite alternate;
+}
+
+@keyframes driftA {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(10vmax, 6vmax, 0) scale(1.15);
+  }
+}
+
+@keyframes driftB {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.1);
+  }
+  to {
+    transform: translate3d(-8vmax, -5vmax, 0) scale(0.95);
+  }
+}
+
+@keyframes driftC {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-6vmax, -8vmax, 0) scale(1.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
+}
+
+.copy {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 720px;
+  padding: 0 16px;
+  text-align: center;
+  z-index: 2;
+}
+
+.title {
+  font-weight: 600;
+  font-size: clamp(25px, 4vw, 45px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+  margin: 0 0 1rem;
+}
+
+.subtitle {
+  font-family: var(--font-family-base);
+  font-size: 1.05rem;
+  color: var(--text-secondary-color);
+  margin: 0;
+}
+
+.ring {
+  --radius: max(220px, 25vw);
+  --cover-size: clamp(44px, 5vw, 72px);
+  position: absolute;
+  top: calc(80svh + var(--radius));
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 1;
+  will-change: transform;
+}
+
+.rotor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  will-change: transform;
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: var(--cover-size);
+  max-width: none;
+  height: var(--cover-size);
+  padding: 0;
+  border: none;
+  margin: calc(var(--cover-size) / -2) 0 0 calc(var(--cover-size) / -2);
+  border-radius: var(--border-radius2);
+  background-color: #4a4a4a;
+  transform: rotate(var(--angle)) translateY(calc(-1 * var(--radius)));
+  cursor: pointer;
+  will-change: transform;
+}
+
+.coverImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.cover:nth-child(1) {
+  --angle: 0deg;
+}
+.cover:nth-child(2) {
+  --angle: 12deg;
+}
+.cover:nth-child(3) {
+  --angle: 24deg;
+}
+.cover:nth-child(4) {
+  --angle: 36deg;
+}
+.cover:nth-child(5) {
+  --angle: 48deg;
+}
+.cover:nth-child(6) {
+  --angle: 60deg;
+}
+.cover:nth-child(7) {
+  --angle: 72deg;
+}
+.cover:nth-child(8) {
+  --angle: 84deg;
+}
+.cover:nth-child(9) {
+  --angle: 96deg;
+}
+.cover:nth-child(10) {
+  --angle: 108deg;
+}
+.cover:nth-child(11) {
+  --angle: 120deg;
+}
+.cover:nth-child(12) {
+  --angle: 132deg;
+}
+.cover:nth-child(13) {
+  --angle: 144deg;
+}
+.cover:nth-child(14) {
+  --angle: 156deg;
+}
+.cover:nth-child(15) {
+  --angle: 168deg;
+}
+.cover:nth-child(16) {
+  --angle: 180deg;
+}
+.cover:nth-child(17) {
+  --angle: 192deg;
+}
+.cover:nth-child(18) {
+  --angle: 204deg;
+}
+.cover:nth-child(19) {
+  --angle: 216deg;
+}
+.cover:nth-child(20) {
+  --angle: 228deg;
+}
+.cover:nth-child(21) {
+  --angle: 240deg;
+}
+.cover:nth-child(22) {
+  --angle: 252deg;
+}
+.cover:nth-child(23) {
+  --angle: 264deg;
+}
+.cover:nth-child(24) {
+  --angle: 276deg;
+}
+.cover:nth-child(25) {
+  --angle: 288deg;
+}
+.cover:nth-child(26) {
+  --angle: 300deg;
+}
+.cover:nth-child(27) {
+  --angle: 312deg;
+}
+.cover:nth-child(28) {
+  --angle: 324deg;
+}
+.cover:nth-child(29) {
+  --angle: 336deg;
+}
+.cover:nth-child(30) {
+  --angle: 348deg;
+}
+
+.glow[data-shape="1"] .blobA {
+  width: 65vmax;
+  height: 90vmax;
+  left: -10vmax;
+  top: -30vmax;
+  border-radius: 42% 58% 60% 40% / 55% 40% 60% 45%;
+}
+.glow[data-shape="1"] .blobB {
+  width: 85vmax;
+  height: 60vmax;
+  right: -35vmax;
+  top: 20vmax;
+}
+.glow[data-shape="1"] .blobC {
+  width: 70vmax;
+  height: 70vmax;
+  left: -5vmax;
+  bottom: -45vmax;
+}
+
+.glow[data-shape="2"] .blobA {
+  width: 95vmax;
+  height: 70vmax;
+  left: -35vmax;
+  top: -10vmax;
+}
+.glow[data-shape="2"] .blobB {
+  width: 60vmax;
+  height: 85vmax;
+  right: -15vmax;
+  top: -25vmax;
+  border-radius: 60% 40% 45% 55% / 50% 55% 45% 50%;
+}
+.glow[data-shape="2"] .blobC {
+  width: 80vmax;
+  height: 80vmax;
+  left: 25vmax;
+  bottom: -55vmax;
+}
+
+.glow[data-shape="3"] .blobA {
+  width: 75vmax;
+  height: 75vmax;
+  left: 5vmax;
+  top: -35vmax;
+}
+.glow[data-shape="3"] .blobB {
+  width: 90vmax;
+  height: 90vmax;
+  right: -45vmax;
+  top: -10vmax;
+  border-radius: 48% 52% 55% 45% / 60% 45% 55% 40%;
+}
+.glow[data-shape="3"] .blobC {
+  width: 65vmax;
+  height: 95vmax;
+  left: -20vmax;
+  bottom: -55vmax;
+}
+
+.glow[data-shape="4"] .blobA {
+  width: 88vmax;
+  height: 88vmax;
+  left: -40vmax;
+  top: -35vmax;
+  border-radius: 55% 45% 50% 50% / 45% 55% 45% 55%;
+}
+.glow[data-shape="4"] .blobB {
+  width: 70vmax;
+  height: 55vmax;
+  right: -10vmax;
+  top: 30vmax;
+}
+.glow[data-shape="4"] .blobC {
+  width: 100vmax;
+  height: 70vmax;
+  left: 0;
+  bottom: -40vmax;
+}
+
+.glow[data-shape="5"] .blobA {
+  width: 70vmax;
+  height: 100vmax;
+  left: -25vmax;
+  top: -40vmax;
+}
+.glow[data-shape="5"] .blobB {
+  width: 80vmax;
+  height: 80vmax;
+  right: -40vmax;
+  top: -30vmax;
+  border-radius: 50% 50% 40% 60% / 55% 50% 50% 45%;
+}
+.glow[data-shape="5"] .blobC {
+  width: 75vmax;
+  height: 75vmax;
+  left: 30vmax;
+  bottom: -50vmax;
+}
+
+.nowShowing {
+  position: absolute;
+  bottom: 6vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 640px;
+  padding: 0 16px;
+  text-align: center;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
+
+.nowShowingOn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nowShowingInner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  animation: nowShowingFade 0.6s ease;
+}
+
+@keyframes nowShowingFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nowAlbum {
+  font-weight: 500;
+  font-size: clamp(15px, 2.4vw, 25px);
+  line-height: 1.15;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.nowAlbum:hover {
+  text-decoration: underline;
+}
+
+.nowArtist {
+  font-family: var(--font-family-base);
+  font-size: 1rem;
+  color: var(--text-secondary-color);
+  text-decoration: none;
+}
+
+.nowArtist:hover {
+  color: var(--text-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nowShowingInner {
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .copy {
+    top: 12vh;
+  }
+
+  .ring {
+    top: calc(84svh + var(--radius));
+  }
+
+  .nowShowing {
+    bottom: 4vh;
+  }
+}

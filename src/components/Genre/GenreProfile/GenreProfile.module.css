@@ -1,0 +1,141 @@
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  position: relative;
+}
+
+.subtitleWrapper {
+  display: block;
+  width: 100%;
+}
+
+.genreLabel {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary-color);
+  text-transform: uppercase;
+}
+
+.heroRightStats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.statLineItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: var(--text-color);
+}
+
+.statLineValue {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.statLineLabel {
+  color: var(--text-secondary-color);
+  font-size: 0.85rem;
+}
+
+.loading {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary-color);
+}
+
+.tabContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.contentContainer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 370px;
+  gap: 5rem;
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: min-content;
+  min-width: 0;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 300px;
+  height: min-content;
+  position: sticky;
+  top: var(--header-offset, 100px);
+}
+
+.infoCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.infoTitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary-color);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.infoText {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.infoMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--dark-border);
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.metaLabel {
+  color: var(--text-secondary-color);
+}
+
+.metaValue {
+  color: var(--text-color);
+  font-weight: 500;
+  font-family: monospace;
+}
+
+@media (max-width: 1024px) {
+  .tabContent {
+    padding: 40px 20px;
+  }
+
+  .contentContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}

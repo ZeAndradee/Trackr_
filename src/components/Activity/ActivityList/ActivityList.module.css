@@ -1,0 +1,109 @@
+.dateGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dateLabel {
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-secondary-color);
+  padding: 16px 0 4px;
+  opacity: 0.6;
+}
+
+.skeletonList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.skeletonItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skeletonHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skeletonAvatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--skeleton-pulse);
+  flex-shrink: 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonUsername {
+  height: 12px;
+  width: 80px;
+  border-radius: 6px;
+  background: var(--skeleton-pulse);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonCard {
+  background: var(--skeleton-shimmer-from);
+  border: 1px solid var(--skeleton-pulse);
+  border-radius: var(--border-radius2);
+  padding: 12px;
+  display: flex;
+  gap: 14px;
+}
+
+.skeletonCover {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius);
+  background: var(--skeleton-pulse);
+  flex-shrink: 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.skeletonLine {
+  height: 14px;
+  width: 60%;
+  border-radius: 6px;
+  background: var(--skeleton-pulse);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonLineShort {
+  height: 11px;
+  width: 35%;
+  border-radius: 6px;
+  background: var(--skeleton-subtle-pulse);
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 768px) {
+  .skeletonCover {
+    width: 50px;
+    height: 50px;
+  }
+}

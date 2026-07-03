@@ -1,0 +1,913 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 1000px;
+  max-width: 95vw;
+  background-color: var(--dark-bg-color);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 90vh;
+  animation: modalSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modalExpanded {
+  width: 550px;
+  max-height: 85vh;
+}
+
+.header {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.headerCover {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--dark-border);
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.headerTitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary-color);
+  margin: 0;
+}
+
+.headerSubtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.closeButton:hover {
+  color: var(--text-color);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.content {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  max-height: 50vh;
+  padding-bottom: 10px;
+  animation: contentFadeIn 0.25s ease 0.1s both;
+}
+
+/* Left Column: Album Review */
+.albumColumn {
+  flex: 0 0 50%;
+  min-width: 0;
+  padding: 24px 24px 0 24px;
+  border-right: 1px solid var(--dark-border);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.albumHeader {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-bottom: 24px;
+  min-width: 0;
+}
+
+.coverImageLink {
+  display: block;
+  flex-shrink: 0;
+  border-radius: var(--border-radius);
+}
+
+.coverImageContainer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 1px solid var(--dark-border);
+}
+
+.coverImageContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: var(--border-radius);
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.coverImageLink:hover .coverImageContainer::after {
+  border-color: var(--primary-color);
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.albumInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 6px;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.albumNameContainer {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  min-width: 0;
+}
+
+.albumName {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.albumLikeButton {
+  color: #d6dae0;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0.75rem;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+  padding: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.albumLikeButton:hover {
+  color: var(--text-color);
+}
+
+.albumLikeButton.active {
+  color: #e91e63;
+  background-color: rgba(233, 30, 99, 0.1);
+}
+
+.artistName {
+  font-size: 1rem;
+  color: var(--text-secondary-color);
+}
+
+.artistName a {
+  color: var(--text-secondary-color);
+  text-decoration: none;
+}
+
+.artistName a:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.albumInteractions {
+  display: flex;
+  align-items: flex-end;
+}
+
+.likeLabel {
+  font-size: 0.75rem;
+  color: var(--text-secondary-color);
+  font-weight: 500;
+}
+
+.ratingSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+}
+
+.ratingGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ratingLabel {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  font-weight: 500;
+}
+
+.controls {
+  display: flex;
+  width: 100%;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.dateContainer {
+  margin-top: auto;
+}
+
+.dateButton {
+  background-color: var(--menu-hover);
+  border: 1px solid var(--dark-border);
+  color: var(--text-color);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-regular);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.dateButton:hover,
+.dateButton:focus {
+  outline: none;
+  border-color: var(--dark-border3);
+  box-shadow: 0 0 0 4px transparent;
+  background-color: var(--menu-hover);
+}
+
+.inputContainer {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.expandButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  opacity: 0.4;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border-radius: 50%;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
+}
+
+.expandButton:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.expandedFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.expandedContent {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  overflow-y: auto;
+  animation: contentFadeIn 0.25s ease 0.1s both;
+}
+
+.expandedTextareaWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.expandedTextarea {
+  width: 100%;
+  min-height: 500px;
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  resize: none;
+  font-family: inherit;
+}
+
+.expandedTextarea:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.expandedTextarea::placeholder {
+  color: var(--text-secondary-color);
+}
+
+.textareaWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewTextarea {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px 40px 12px 16px;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  min-height: 140px;
+  flex: 1;
+  resize: none;
+  font-family: inherit;
+  overflow-y: auto;
+  display: block;
+}
+
+.reviewTextarea:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.reviewTextarea::placeholder {
+  color: var(--text-secondary-color);
+}
+
+.reviewTextarea::-webkit-scrollbar {
+  width: 4px;
+}
+
+.reviewTextarea::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.reviewTextarea::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.reviewTextareaAutoGrow {
+  min-height: 40px;
+  max-height: 170px;
+  overflow-y: auto;
+}
+
+.charCounter {
+  font-size: 0.75rem;
+  color: var(--text-secondary-color);
+  transition: color 0.2s ease;
+  text-align: right;
+}
+
+.limitReached {
+  color: #ff5050;
+}
+
+/* Right Column: Track Overview */
+.tracksColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.tracksHeader {
+  padding: 20px 16px 10px 16px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cancelButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.7rem 1.25rem;
+  border-radius: 0.75rem;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 0.96875rem;
+
+  transition: background 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.trackList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.trackItemWrapper:last-child {
+  border-bottom: none;
+}
+
+.trackItem {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 46px;
+  transition: background-color 0.1s;
+  cursor: pointer;
+}
+
+.trackItem:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.trackNumber {
+  width: 24px;
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  margin-right: 12px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.trackTitle {
+  flex: 1;
+  color: var(--text-color);
+  margin-right: 16px;
+  min-width: 0;
+}
+
+.trackExpandIcon {
+  color: var(--text-secondary-color);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.trackExpandIcon.expanded {
+  transform: rotate(180deg);
+}
+
+.trackDropdown {
+  padding: 10px 16px 10px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.trackDropdownRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.trackTextareaContainer {
+  position: relative;
+}
+
+.trackReviewTextarea {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 10px 36px 10px 12px;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  min-height: 100px;
+  resize: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.trackReviewTextarea:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.trackReviewTextarea::placeholder {
+  color: var(--text-secondary-color);
+}
+
+/* Footer */
+.footer {
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background-color);
+}
+
+.saveContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.buttonText {
+  position: relative;
+  z-index: 1;
+}
+
+.buttonIcon {
+  margin-right: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.submitting::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform-origin: left;
+  animation: fillLeftToRight 1s ease-in-out forwards;
+}
+
+.warningOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  border-radius: 12px;
+}
+
+.warningContent {
+  background-color: var(--dark-bg-color);
+  padding: 20px;
+  border: 1px solid var(--dark-border);
+  border-radius: 6px;
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.warningTitle {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.warningText {
+  font-size: 0.85rem;
+  color: var(--text-secondary-color);
+  margin-bottom: 16px;
+}
+
+.warningButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.warningButton {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cancelWarning {
+  background-color: var(--text-color);
+  color: var(--dark-bg-color);
+  border: none;
+}
+
+.confirmWarning {
+  background-color: transparent;
+  color: #ff5050;
+  border: 1px solid rgba(255, 80, 80, 0.4);
+}
+
+/* Scrollbar customization */
+.trackList::-webkit-scrollbar {
+  width: 6px;
+}
+.trackList::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+.trackList::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.trackHeartIcon {
+  width: 26px;
+  height: 26px;
+  color: var(--text-secondary-color);
+}
+
+.releaseDate {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  margin-top: 2px;
+  text-decoration: none;
+  display: block;
+}
+
+.releaseDate:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.trackTags {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.completionSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 0 0 60%;
+}
+
+.completionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.countWrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.completionCount {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.separationDot {
+  color: var(--text-secondary-color);
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+.listenedLabel {
+  font-size: 0.8rem;
+  color: var(--text-secondary-color);
+  font-weight: 500;
+}
+
+.completionPercent {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.completionLow {
+  color: var(--text-secondary-color);
+}
+
+.completionMedium {
+  color: var(--rating-medium, #facc15);
+}
+
+.completionHigh {
+  color: var(--rating-high, #4ade80);
+}
+
+.completedBadge {
+  color: #4ade80;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.completionBarTrack {
+  width: 100%;
+  height: 4px;
+  background-color: var(--dark-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.completionBarFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.fillLow {
+  background-color: var(--text-secondary-color);
+}
+
+.fillMedium {
+  background-color: var(--rating-medium);
+}
+
+.fillHigh {
+  background-color: var(--rating-high);
+}
+
+.fillDone {
+  background-color: var(--rating-high);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.93);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    max-height: 90vh;
+  }
+}
+
+@keyframes fillLeftToRight {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.gifButton {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  opacity: 0.4;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border-radius: 50%;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
+}
+
+.gifButton:hover,
+.gifButtonActive {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.gifPreview {
+  position: relative;
+  display: inline-block;
+  margin: 8px 0;
+}
+
+.gifPreviewImage {
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  display: block;
+}
+
+.removeGifButton {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: var(--overlay-bg);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.removeGifButton:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.pickerAnchor {
+  position: relative;
+}

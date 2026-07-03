@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: rgba(239, 68, 68, 0.062);
+  border: 2px solid #ef44440e;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  margin-bottom: 24px;
+  width: 100%;
+  align-items: center;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ef4444;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  color: #ef4444;
+  font-size: 14px;
+  font-weight: var(--font-weight-semi-bold);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.message {
+  color: var(--text-color);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}

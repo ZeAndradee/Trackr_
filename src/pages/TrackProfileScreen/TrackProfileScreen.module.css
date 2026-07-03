@@ -1,0 +1,12 @@
+.trackProfileScreen {
+  width: 100%;
+  min-height: calc(100vh - 60px); 
+  padding: 0;
+  background: var(--background-color);
+}
+
+@media (max-width: 768px) {
+  .trackProfileScreen {
+    padding: 0;
+  }
+}

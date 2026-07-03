@@ -1,0 +1,151 @@
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.columnsLayout {
+  max-width: var(--app-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--app-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 1rem;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card {
+  border-radius: var(--border-radius2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.coversRow {
+  display: flex;
+  width: min-content;
+}
+
+.cover {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  background-color: var(--secondary-color);
+  animation: pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cover + .cover {
+  margin-left: -50px;
+}
+
+.cover:nth-child(1) {
+  z-index: 7;
+}
+.cover:nth-child(2) {
+  z-index: 6;
+}
+.cover:nth-child(3) {
+  z-index: 5;
+}
+.cover:nth-child(4) {
+  z-index: 4;
+}
+.cover:nth-child(5) {
+  z-index: 3;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.line {
+  height: 14px;
+  border-radius: 4px;
+  background-color: var(--secondary-color);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.lineShort {
+  width: 60%;
+}
+
+.lineMedium {
+  width: 80%;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.searchBar {
+  height: 48px;
+  border-radius: var(--border-radius2);
+  background-color: var(--secondary-color);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.section {
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--border-radius2);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .columnsLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .rightColumn {
+    order: -1;
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    padding: 1.5rem 1rem 0.5rem;
+  }
+
+  .columnsLayout {
+    padding: 1rem;
+  }
+}

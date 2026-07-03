@@ -1,0 +1,718 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reviewCard {
+  background-color: var(--dark-bg-color);
+  border-radius: var(--border-radius2);
+  width: 90%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 10000;
+  margin: 0 auto;
+  animation: modalSlideIn 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reviewCardShifted {
+  transform: translateX(-180px);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.93);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    max-height: 90vh;
+  }
+}
+
+.reviewCard::-webkit-scrollbar-track {
+  background-color: rgba(36, 37, 39, 0.3);
+}
+
+.reviewCard::-webkit-scrollbar {
+  width: 13px;
+}
+
+.reviewCard::-webkit-scrollbar-thumb {
+  background: var(--text-secondary-color);
+  border-radius: 14px;
+  border: 3px solid var(--dark-bg-color);
+}
+
+.reviewCard::-webkit-scrollbar-horizontal {
+  display: none;
+  height: 0;
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.reviewHeader h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.closeButton {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewContent {
+  padding: 20px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: visible;
+  animation: contentFadeIn 0.25s ease 0.1s both;
+}
+
+.trackInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.coverImageContainer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 1px solid var(--dark-border);
+  cursor: pointer;
+}
+
+.trackDetails {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.trackName {
+  margin: 0 0 6px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.artistName {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+}
+
+.artistName:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.albumInfo {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  margin: 0;
+  display: block;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.spotifyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--text-color);
+  padding-bottom: 1px;
+  line-height: 1;
+  width: fit-content;
+}
+
+.linkIcon {
+  font-size: 0.8rem;
+}
+
+.divider {
+  display: none;
+}
+
+.actionsRow {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.leftActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rightActions {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.ratingSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionLabel {
+  font-size: 0.85rem;
+  color: var(--text-secondary-color);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.ratingStars {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dateSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.dateContainer {
+  position: relative;
+}
+
+.dotIndicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #ff5050;
+  opacity: 0.7;
+}
+
+.saveButton {
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttonText {
+  position: relative;
+  z-index: 1;
+}
+
+.buttonIcon {
+  margin-right: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--dark-border);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--text-secondary-color);
+  border-radius: 50%;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(16px);
+  background-color: #ffffff;
+}
+
+.listenedLabel {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  line-height: 1.2;
+}
+
+.dateButton {
+  background-color: var(--menu-hover);
+  border: 1px solid var(--dark-border);
+  color: var(--text-color);
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-regular);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dateButton:hover,
+.dateButton:focus {
+  outline: none;
+  border-color: var(--dark-border3);
+  box-shadow: 0 0 0 4px transparent;
+  background-color: var(--menu-hover);
+}
+
+.reviewCardExpanded {
+  height: 85vh;
+  overflow: hidden;
+}
+
+.expandedContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  overflow-y: auto;
+  animation: contentFadeIn 0.25s ease 0.1s both;
+}
+
+.expandedTextareaWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.expandedTextarea {
+  flex: 1;
+  width: 100%;
+  min-height: 400px;
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  resize: none;
+  font-family: inherit;
+}
+
+.expandedTextarea:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.expandedTextarea::placeholder {
+  color: var(--text-secondary-color);
+}
+
+.expandedFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.expandedHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerCover {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--dark-border);
+  flex-shrink: 0;
+}
+
+.expandedHeaderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.expandedHeaderLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary-color);
+}
+
+.expandedHeaderTitle {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.expandButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  opacity: 0.4;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border-radius: 50%;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
+}
+
+.expandButton:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.textareaContainer {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.textareaWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.textareaWrapper .commentInput {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  padding: 10px 40px 10px 14px;
+  font-size: 0.95rem;
+
+  resize: none;
+  min-height: 140px;
+  max-height: 300px;
+  box-sizing: border-box;
+}
+
+.commentInput:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.commentInput::placeholder {
+  color: var(--text-secondary-color);
+}
+
+.textareaWrapper .commentInputAutoGrow {
+  min-height: 40px;
+  max-height: 170px;
+  overflow-y: auto;
+}
+
+.charCounter {
+  display: block;
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--text-secondary-color);
+}
+
+.limitReached {
+  color: #ff5050;
+}
+
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  gap: 12px;
+}
+
+.cancelButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.7rem 1.25rem;
+  border-radius: 0.75rem;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 0.96875rem;
+
+  transition: background 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.saveContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.submitting::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transform-origin: left;
+  animation: fillLeftToRight 1s ease-in-out forwards;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fillLeftToRight {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/* Warnings */
+.warningOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  border-radius: 6px;
+}
+
+.warningContent {
+  background-color: var(--dark-bg-color);
+  padding: 20px;
+  border: 1px solid var(--dark-border);
+  border-radius: 6px;
+  width: 90%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.warningTitle {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.warningText {
+  font-size: 0.85rem;
+  color: var(--text-secondary-color);
+  margin-bottom: 16px;
+}
+
+.warningButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.warningButton {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cancelWarning {
+  background-color: var(--text-color);
+  color: var(--dark-bg-color);
+  border: none;
+}
+
+.confirmWarning {
+  background-color: transparent;
+  color: #ff5050;
+  border: 1px solid rgba(255, 80, 80, 0.4);
+}
+
+@media (max-width: 500px) {
+  .reviewCard {
+    height: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    border: none;
+  }
+}
+
+.gifButton {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  opacity: 0.4;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border-radius: 50%;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
+}
+
+.gifButton:hover,
+.gifButtonActive {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.gifPreview {
+  position: relative;
+  display: inline-block;
+  margin: 8px 0;
+}
+
+.gifPreviewImage {
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: 8px;
+  display: block;
+}
+
+.removeGifButton {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: var(--overlay-bg);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.removeGifButton:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.pickerAnchor {
+  position: relative;
+}

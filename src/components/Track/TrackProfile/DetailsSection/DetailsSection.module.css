@@ -1,0 +1,81 @@
+.sidebarDetailSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarDetailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--dark-border);
+  gap: 4px;
+}
+
+.sidebarDetailRow:first-child {
+  padding-top: 0px;
+}
+.sidebarDetailRow:last-child {
+  border-bottom: none;
+}
+
+.sidebarDetailLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.sidebarDetailValue {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+.genreTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+  max-width: 100%;
+}
+
+.popularityWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popularityContainer {
+  width: 80px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.popularityFill {
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 3px;
+}
+
+.popularityValue {
+  font-size: 0.85rem;
+  color: var(--text-secondary-color);
+  font-weight: 500;
+  min-width: 35px;
+  text-align: right;
+}
+
+.explicitIcon {
+  color: var(--text-secondary-color);
+  border: 1px solid var(--text-secondary-color);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}

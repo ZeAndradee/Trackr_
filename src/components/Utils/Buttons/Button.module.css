@@ -1,0 +1,134 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 4px;
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-align: center;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  outline: none;
+  box-sizing: border-box;
+  transition:
+    color 0.18s cubic-bezier(0.59, 0.01, 0.28, 1),
+    background-color 0.18s cubic-bezier(0.59, 0.01, 0.28, 1),
+    opacity 0.18s cubic-bezier(0.59, 0.01, 0.28, 1),
+    border-color 0.18s cubic-bezier(0.59, 0.01, 0.28, 1);
+}
+
+.sm {
+  font-size: 13px;
+  line-height: 18px;
+  height: 28px;
+  padding: 0 10px;
+  min-width: 64px;
+  border-radius: 7px;
+}
+
+.md {
+  font-size: 14px;
+  line-height: 20px;
+  height: 34px;
+  padding: 0 13px;
+  min-width: 80px;
+  border-radius: 8px;
+}
+
+.lg {
+  font-size: 15px;
+  line-height: 22.5px;
+  height: 40px;
+  padding: 0 16px;
+  min-width: 100px;
+  border-radius: 8px;
+}
+
+.primary {
+  background-color: #158ef1;
+  color: #fff;
+}
+
+.primary:hover {
+  background-color: #2f9df5;
+}
+
+.primary:active {
+  background-color: #0f7ad4;
+}
+
+.secondary {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--text-color);
+}
+
+.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.secondary:active {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.outline {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+}
+
+.outline:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.outline:active {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.leftIcon,
+.rightIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: inline-flex;
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  .sm {
+    font-size: 12px;
+    line-height: 16px;
+    height: 26px;
+    padding: 0 9px;
+  }
+
+  .md {
+    font-size: 13px;
+    line-height: 18px;
+    height: 32px;
+    padding: 0 12px;
+  }
+
+  .lg {
+    font-size: 14px;
+    line-height: 20px;
+    height: 38px;
+    padding: 0 14px;
+  }
+}

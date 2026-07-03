@@ -1,0 +1,64 @@
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--dark-border);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+.tabButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px 10px;
+  position: relative;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.tabButton:hover {
+  color: var(--text-color);
+}
+
+.tabButtonActive {
+  color: var(--text-color);
+}
+
+.indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background-color: var(--primary-color);
+  border-radius: 3px 3px 0 0;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.rightSlot {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.panels {
+  position: relative;
+  width: 100%;
+}
+
+.panel {
+  width: 100%;
+}
+
+.panelHidden {
+  display: none;
+}

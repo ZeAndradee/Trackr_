@@ -1,0 +1,101 @@
+.shortCardContainer {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  min-width: 300px;
+  max-width: none;
+  border: 1px solid var(--dark-border);
+  border-radius: 8px;
+  background-color: var(--dark-bg-color);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shortCardContainer.fixed-width {
+  flex: 0 0 100%;
+  min-width: auto;
+}
+
+.shortCardContainer:hover {
+  border-color: var(--primary-light);
+}
+
+.trackInfo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px;
+  position: relative;
+}
+
+.trackCover {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-right: 12px;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trackDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  flex: 1;
+  min-width: 0;
+  margin-right: 8px;
+}
+
+.trackTitle {
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-color);
+}
+
+.trackArtist {
+  font-size: 12px;
+  color: var(--text-secondary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  padding: 2px;
+}
+
+.userImageContainer:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.userImageContainer:hover ~ .shortCardContainer,
+.shortCardContainer:has(.userImageContainer:hover) {
+  border: 1px solid var(--dark-border) !important;
+}
+
+@media screen and (max-width: 480px) {
+  .trackCover {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    margin-right: 8px;
+  }
+
+  .trackArtist {
+    font-size: 11px;
+  }
+}

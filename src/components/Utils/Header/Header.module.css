@@ -1,0 +1,564 @@
+/* Main Layout */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--header-blur-bg, rgba(10, 10, 10, 0.5));
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--dark-border);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transparent {
+  border-bottom-color: transparent;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.theater {
+  z-index: 210;
+}
+
+/* Invert color scheme when transparent header sits over a light hero image */
+.invert .searchBar:not(.searchBarOpen):hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
+.invert .profileButton {
+  color: #000;
+}
+
+.invert .clearButton {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+
+.navbarContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--app-max-width, 1200px);
+  width: 100%;
+  margin: 0 auto;
+  padding: 12px 16px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.headerHidden {
+  transform: translateY(-100%);
+}
+
+/* Branding */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  position: relative;
+  z-index: 5;
+}
+
+.logoImg {
+  height: 34px;
+  filter: var(--logo-filter, none);
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
+}
+
+.logo:hover .logoImg {
+  opacity: 0.9;
+}
+
+/* Profile Area */
+.profileContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 5;
+  position: relative;
+  min-height: 57px;
+}
+
+.profileButton {
+  padding: 6px;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 5;
+}
+
+/* Search Component */
+.searchBar {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid transparent;
+  border-radius: 20px;
+  overflow: visible;
+  transition: background-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  margin: 0;
+}
+
+.searchBar:not(.searchBarOpen):hover {
+  background-color: var(--header-hover-bg, rgba(255, 255, 255, 0.05));
+}
+
+.searchBarOpen {
+  width: 380px;
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-radius: 12px;
+  cursor: default;
+  animation: fadeInOpacity 0.2s ease;
+  visibility: visible;
+  opacity: 1;
+  z-index: 50;
+}
+
+.searchBarInner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.searchIcon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  pointer-events: none;
+}
+
+.searchInputField {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 12px 0 44px !important;
+  height: 38px !important;
+  font-size: 14px !important;
+  box-shadow: none !important;
+}
+
+.searchInputField:focus {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Search Results Dropdown */
+.searchResultsDropdown {
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  right: -1px;
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  box-shadow: var(--header-dropdown-shadow, 0 8px 24px rgba(0, 0, 0, 0.4));
+  overflow: hidden;
+  z-index: 50;
+}
+
+.searchResultsInner {
+  max-height: 380px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.searchResultsInner::-webkit-scrollbar {
+  width: 4px;
+}
+
+.searchResultsInner::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.searchResultsInner::-webkit-scrollbar-thumb {
+  background: var(--header-hover-bg, rgba(255, 255, 255, 0.1));
+  border-radius: 4px;
+}
+
+.hasResults {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+.searchFilterBar {
+  display: flex;
+  align-items: center;
+  background: var(--dark-border);
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+  margin: 10px 12px;
+}
+
+.searchFilterBtn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: var(--text-secondary-color);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.searchFilterBtn:hover {
+  color: var(--text-color);
+}
+
+.searchFilterBtnActive {
+  background: var(--menu-bg);
+  color: var(--text-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.searchArtistImg {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--dark-border);
+}
+
+.searchResultNameText {
+}
+
+.searchCategory {
+  padding: 4px 0;
+}
+
+.searchCategory:not(:last-child) {
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.searchCategoryHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary-color);
+}
+
+.searchResultItem {
+  display: flex;
+  align-items: center;
+  padding: 7px 14px;
+  gap: 10px;
+  transition: background-color 0.15s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.searchResultItem:hover,
+.searchResultActive {
+  background-color: var(--header-hover-bg, rgba(255, 255, 255, 0.05));
+}
+
+.searchResultItemLast {
+  border-bottom: none;
+}
+
+.searchResultImg {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.searchResultImgAlbum {
+  border-radius: 2px;
+}
+
+.searchResultAvatar {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchResultInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  gap: 1px;
+}
+
+.searchResultName {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-color);
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.searchResultArtist {
+  font-size: 12px;
+  color: var(--text-secondary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.moreMenuContainer {
+  position: relative;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.searchResultItem:hover .moreMenuContainer,
+.searchResultActive .moreMenuContainer {
+  opacity: 1;
+}
+
+.moreButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition:
+    color 0.15s,
+    background 0.15s;
+}
+
+.moreButton:hover {
+  color: var(--text-color);
+  background: var(--hover-bg);
+}
+
+.searchSeeAll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+  border-top: 1px solid var(--dark-border);
+  transition: background-color 0.15s;
+}
+
+.searchSeeAll:hover {
+  background-color: var(--header-hover-bg, rgba(255, 255, 255, 0.04));
+  color: var(--text-color);
+}
+
+.searchMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 14px;
+  text-align: center;
+  color: var(--text-secondary-color);
+  font-size: 13px;
+}
+
+.searchSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--dark-border);
+  border-top-color: var(--text-secondary-color);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Simple Header Variant */
+.simpleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  width: 100%;
+}
+
+.simpleLogo {
+  height: 40px;
+  cursor: pointer;
+}
+
+.simpleLinks {
+  display: flex;
+  gap: 24px;
+}
+
+.simpleLink {
+  color: var(--text-secondary-color);
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.simpleLink:hover {
+  color: var(--text-color);
+}
+
+/* Animations */
+@keyframes fadeInOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+  .navbar .navbarContent {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .navbarSearchActive .logo,
+  .navbarSearchActive .profileButton,
+  .navbarSearchActive .profileContainer > button,
+  .navbarSearchActive .profileContainer > a {
+    display: none !important;
+  }
+
+  .navbarSearchActive .profileContainer {
+    width: 100%;
+  }
+
+  .searchBarOpen {
+    position: relative;
+    width: 100%;
+    right: auto;
+    top: auto;
+    z-index: 10;
+    background-color: var(--header-hover-bg, rgba(255, 255, 255, 0.05));
+  }
+
+  .searchResultsDropdown {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    background-color: var(--dark-bg-color);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .searchResultsInner {
+    max-height: calc(100vh - 120px);
+  }
+
+  .signUpButton {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbarContent {
+    padding: 14px 24px;
+  }
+
+  .searchBar {
+    margin-top: 0;
+    pointer-events: all;
+    transform: none;
+    position: relative;
+    top: auto;
+    right: auto;
+    opacity: 1;
+  }
+
+  .searchBarOpen {
+    width: 320px;
+  }
+
+  .searchInput {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbarContent {
+    padding: 16px 32px;
+  }
+
+  .logoImg {
+    height: 38px;
+  }
+
+  .searchBarOpen {
+    width: 380px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbarContent {
+    padding: 12px 0px;
+    max-width: 1200px;
+  }
+
+  .logoImg {
+    height: 42px;
+  }
+
+  .searchBarOpen {
+    width: 420px;
+  }
+}
+

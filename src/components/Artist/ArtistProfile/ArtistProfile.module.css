@@ -1,0 +1,371 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  position: relative;
+}
+
+.circularCoverWrapper {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circularCoverImage {
+  border-radius: 50%;
+}
+
+.circularCoverImage::after {
+  display: none;
+}
+
+.subtitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.genresText {
+  color: var(--text-secondary-color);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.followersText {
+  color: var(--text-secondary-color);
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.heroRightStats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.statLineItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: var(--text-color);
+}
+
+.statLineValue {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.statLineLabel {
+  color: var(--text-secondary-color);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.statSeparator {
+  width: 1px;
+  height: 43px;
+  background-color: var(--dark-border);
+}
+
+.contentTabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid var(--dark-border);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tabButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px 10px;
+  position: relative;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.tabButton:hover {
+  color: var(--text-color);
+}
+
+.activeTab {
+  color: var(--text-color);
+}
+
+.activeTab::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px 3px 0 0;
+}
+
+.tabContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.discographyTab {
+  width: 100%;
+}
+
+.aboutTab {
+  width: 100%;
+}
+
+.aboutContainer {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.discographySidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 300px;
+  height: min-content;
+  position: sticky;
+  top: var(--header-offset, 100px);
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.decadeChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.decadeChip {
+  padding: 0 8px;
+  border-radius: 999px;
+  color: var(--text-secondary-color);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.decadeChip:hover {
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+.decadeChipActive {
+  background: var(--menu-bg);
+  color: var(--text-color);
+  border-color: var(--dark-border);
+}
+
+.searchIcon {
+  color: var(--text-secondary-color);
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.searchInput::placeholder {
+  color: var(--text-secondary-color);
+}
+
+.searchClear {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.searchClear:hover {
+  color: var(--text-color);
+}
+
+.contentContainer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  gap: 5rem;
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: min-content;
+}
+
+.popularTracksSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionHeading h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 300px;
+  height: min-content;
+  position: sticky;
+  top: var(--header-offset, 100px);
+}
+
+.statsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 0;
+}
+
+.statsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statsTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.statsPeriod {
+  font-size: 0.8rem;
+  color: var(--text-secondary-color);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.statBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 8px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+}
+
+.statBoxValue {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.statBoxLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-secondary-color);
+}
+
+@media (max-width: 1024px) {
+  .contentContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .contentTabs,
+  .tabContent {
+    padding-left: 40px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .subtitleContainer {
+    justify-content: center;
+  }
+}
+
+.bioSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.bioTitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary-color);
+  margin: 0;
+}
+
+.bioContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.bioText {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin: 0;
+  white-space: normal;
+}
+
+.bioSource {
+  font-size: 0.78rem;
+  color: var(--text-secondary-color);
+}
+
+.bioSourceLink {
+  color: var(--text-secondary-color);
+  text-decoration: underline;
+}
+
+.licenseLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--text-secondary-color);
+  text-decoration: none;
+  opacity: 0.7;
+}

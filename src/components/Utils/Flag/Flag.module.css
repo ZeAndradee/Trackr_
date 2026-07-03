@@ -1,0 +1,11 @@
+.flag {
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.flagTooltip {
+  display: inline-flex;
+}

@@ -1,0 +1,153 @@
+.toastContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 100px;
+  box-shadow: var(--toast-shadow);
+  font-family: var(--font-family-base, "Inter");
+  font-size: 0.95rem;
+  font-weight: 400;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    max-height 0.3s ease;
+}
+
+.toastContainer.enter {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 200px;
+}
+
+.toastContainer.leave {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.message {
+  line-height: 1.4;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  padding-left: 8px;
+}
+
+.confirmButton,
+.cancelButton {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.cancelButton {
+  background: transparent;
+  border: none;
+  opacity: 0.7;
+}
+
+.cancelButton:hover {
+  opacity: 1;
+}
+
+.unsavedToast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px 12px 24px;
+  border-radius: 100px;
+  min-width: 420px;
+  background-color: var(--toast-warning-bg);
+  color: var(--toast-warning-text);
+  border: 2px solid color-mix(in srgb, var(--toast-warning-text) 20%, transparent);
+  box-shadow: var(--toast-unsaved-shadow);
+  font-family: var(--font-family-base, "Inter");
+  font-size: 0.95rem;
+  font-weight: 400;
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    max-height 0.3s ease;
+}
+
+.unsavedToast.enter {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 200px;
+}
+
+.unsavedToast.leave {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}
+
+.unsavedMessage {
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.unsavedActions {
+  display: flex;
+  gap: 8px;
+  margin-left: 4rem;
+}
+
+.discardButton {
+  background: transparent;
+  border: none;
+  color: var(--toast-warning-text);
+  opacity: 0.7;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+.discardButton:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.saveButton {
+  background: var(--toast-warning-text);
+  color: var(--toast-warning-bg);
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.saveButton:hover {
+  background: var(--toast-save-btn-hover);
+}

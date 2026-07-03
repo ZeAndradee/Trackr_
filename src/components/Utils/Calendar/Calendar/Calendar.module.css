@@ -1,0 +1,273 @@
+.calendar {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--border-radius2);
+  color: var(--text-color);
+  font-size: var(--font-size-minor);
+  width: max-content;
+  max-width: 90vw;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  animation: scaleIn 0.15s ease-out;
+  padding: 16px 20px;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.96) translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 26px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.navGroup {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color var(--transition-duration) ease;
+}
+
+.navButton:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.body {
+  display: flex;
+  gap: 32px;
+  margin-top: 10px;
+  min-width: 0;
+}
+
+.monthWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+}
+
+.monthHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  margin-bottom: 16px;
+  padding-left: 0;
+}
+
+.monthName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-color);
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 12px;
+}
+
+.weekday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--font-size-minor);
+  color: var(--text-secondary-color);
+  font-weight: var(--font-weight-medium);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px 0;
+}
+
+.pad {
+  aspect-ratio: 1 / 1;
+}
+
+.cell {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.cellButton {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--text-color);
+  font-size: var(--font-size-minor);
+  cursor: pointer;
+  z-index: 2;
+  transition:
+    background-color var(--transition-duration) ease,
+    color var(--transition-duration) ease;
+}
+
+.cellButton:hover:not(:disabled) {
+  background: rgba(119, 22, 22, 0.1);
+}
+
+.cellButton:disabled {
+  color: var(--text-secondary-color);
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.today .cellButton {
+  font-weight: var(--font-weight-bold);
+}
+
+.todayDot {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+.selected .cellButton {
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: var(--font-weight-bold);
+}
+
+.selected .cellButton:hover:not(:disabled) {
+  background: var(--primary-color);
+}
+
+.inRange::before,
+.rangeStart::before,
+.rangeEnd::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 30px;
+  background: rgba(21, 142, 241, 0.15);
+  z-index: 1;
+}
+
+.inRange::before {
+  left: 0;
+  right: 0;
+}
+
+.rangeStart::before {
+  left: 50%;
+  right: 0;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.rangeEnd::before {
+  left: 0;
+  right: 50%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.rangeStart.rangeEnd::before {
+  display: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--dark-border);
+}
+
+.cancelButton {
+  background: transparent;
+  border: none;
+  font-weight: var(--font-weight-semi-bold);
+  font-size: var(--font-size-minor);
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: opacity var(--transition-duration) ease;
+}
+
+.cancelButton:hover {
+  opacity: 0.8;
+}
+
+.saveButton {
+  font-size: var(--font-size-minor);
+  font-weight: var(--font-weight-semi-bold);
+  padding: 6px 16px;
+  border-radius: 8px;
+}
+
+@media (max-width: 680px) {
+  .body {
+    flex-direction: column;
+    gap: 20px;
+    height: 380px;
+    overflow-y: auto;
+    padding-right: 12px;
+  }
+  .navBar {
+    position: static;
+    margin-bottom: 12px;
+  }
+  .calendar {
+    padding: 16px;
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+}

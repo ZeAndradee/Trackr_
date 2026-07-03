@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.facepile {
+  display: flex;
+  align-items: center;
+}
+
+.imageWrapper {
+  margin-left: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.imageWrapper:first-child {
+  margin-left: 0;
+  z-index: 3;
+}
+
+.imageWrapper:nth-child(2) {
+  z-index: 2;
+}
+
+.imageWrapper:hover {
+  z-index: 10;
+}
+
+.image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--background-color);
+  object-fit: cover;
+  background-color: var(--surface-color);
+}
+
+.text {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  font-weight: 400;
+  cursor: default;
+}
+
+.text strong {
+  color: var(--text-color);
+  font-weight: 600;
+  transition: text-decoration 0.2s ease;
+  cursor: pointer;
+}
+
+.text strong:hover {
+  text-decoration: underline;
+}

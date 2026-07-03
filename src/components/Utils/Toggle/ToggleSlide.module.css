@@ -1,0 +1,49 @@
+.toggle {
+   display: inline-flex;
+   align-items: center;
+   background: var(--dark-border);
+   border-radius: 8px;
+   padding: 4px;
+   gap: 4px;
+}
+
+.btn {
+   display: inline-flex;
+   align-items: center;
+   gap: 6px;
+   background: transparent;
+   border: none;
+   padding: 6px 12px;
+   border-radius: 6px;
+   color: var(--text-secondary-color);
+   font-size: 0.82rem;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.15s ease;
+   white-space: nowrap;
+}
+
+.btn:hover {
+   color: var(--text-color);
+}
+
+.active {
+   background: var(--menu-bg);
+   color: var(--text-color);
+   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+   display: inline-flex;
+   align-items: center;
+}
+
+.sm .btn {
+   padding: 4px 8px;
+   font-size: 0.75rem;
+}
+
+.lg .btn {
+   padding: 8px 14px;
+   font-size: 0.9rem;
+}

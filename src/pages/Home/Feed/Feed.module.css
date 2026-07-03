@@ -1,0 +1,76 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.header h3 {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-semi-bold);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.periodFilter {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.periodButton {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.periodButton:hover {
+  color: var(--text-color);
+}
+
+.periodButton.active {
+  background: var(--hover-background);
+  color: var(--text-color);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.loadingMore {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.loadingMoreIcon {
+  color: var(--text-secondary-color);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .header h3 {
+    font-size: 1.05rem;
+  }
+
+  .periodButton {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+}

@@ -1,0 +1,190 @@
+.albumItem {
+  position: relative;
+  min-width: 0;
+}
+
+.dot {
+  display: none;
+}
+
+.albumContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 0;
+  min-width: 0;
+}
+
+.albumCard {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  box-shadow: none;
+}
+
+.albumMainInfo {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.coverLink {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.albumCover {
+  width: 100%;
+  height: 100%;
+}
+
+.albumMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.albumHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+}
+
+.albumTitleBlock {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.albumTitleLink {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.albumTitle {
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+  word-break: break-word;
+}
+
+.albumTitleLink:hover .albumTitle {
+  text-decoration: underline;
+}
+
+.albumMoreButton {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+}
+
+.albumMoreButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-color);
+}
+
+.albumArtists {
+  font-size: 0.85rem;
+  color: var(--text-secondary-color);
+}
+
+.reviewMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.metaDot {
+  color: var(--text-secondary-color);
+  opacity: 0.4;
+  font-size: 0.8rem;
+}
+
+.reviewDate {
+  font-size: 0.8rem;
+  color: var(--text-secondary-color);
+}
+
+.completionCircleWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: help;
+}
+
+.progressCircle {
+  flex-shrink: 0;
+}
+
+.completionFraction {
+  font-size: 0.8rem;
+  color: var(--text-secondary-color);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.albumReviewSection {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--dark-border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.albumReviewText {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.readMore {
+  margin-left: 6px;
+  color: var(--text-secondary-color);
+  font-weight: var(--font-weight-bold);
+  text-decoration: underline;
+}
+
+.readMore:hover {
+  color: var(--primary-color);
+}
+
+.albumReviewGif {
+  max-width: 240px;
+  max-height: 240px;
+  object-fit: contain;
+  border-radius: 8px;
+  align-self: flex-start;
+}
+
+@media (max-width: 600px) {
+  .coverLink {
+    width: 64px;
+    height: 64px;
+  }
+}

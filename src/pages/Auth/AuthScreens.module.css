@@ -1,0 +1,125 @@
+.authScreenContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .authScreenContainer {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .authScreenContainer {
+    padding: 10px 5px;
+  }
+}
+
+/* Google Callback Styles */
+.googleCallback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--background-color) 0%, #0a0c10 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.callbackCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(24, 26, 28, 0.7);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--border-radius2);
+  padding: 2.5rem 3.5rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: var(--card-shadow);
+  text-align: center;
+}
+
+.logoContainer {
+  position: relative;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.googleLogo {
+  font-size: 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-semi-bold);
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.subtitle {
+  color: var(--text-secondary-color);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.progressContainer {
+  width: 100%;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.progressBar {
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(90deg, #4285f4, #34a853, #fbbc05, #ea4335);
+  background-size: 200% 100%;
+  border-radius: 3px;
+  animation: progressMove 1.5s linear infinite;
+}
+
+@keyframes progressMove {
+  0% {
+    background-position: 100% 0;
+    width: 0%;
+    margin-left: 0;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    background-position: -100% 0;
+    width: 0%;
+    margin-left: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .callbackCard {
+    padding: 2rem;
+    max-width: 90%;
+  }
+
+  .googleLogo {
+    font-size: 2.5rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+}

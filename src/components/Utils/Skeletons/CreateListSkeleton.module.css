@@ -1,0 +1,106 @@
+.contentWrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 3rem;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.toolbarSkeleton {
+  height: 48px;
+  width: 100%;
+  background-color: var(--skeleton-pulse);
+  border-radius: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+.emptyStateSkeleton {
+  height: 200px;
+  width: 100%;
+  background-color: var(--skeleton-shimmer-from);
+  border-radius: 8px;
+  animation: pulse 1.5s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardSkeleton {
+  background-color: var(--dark-bg-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cardTitleSkeleton {
+  width: 100px;
+  height: 20px;
+  background-color: var(--skeleton-pulse);
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.fieldSkeleton {
+  height: 48px;
+  width: 100%;
+  background-color: var(--skeleton-pulse);
+  border-radius: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+.settingRowSkeleton {
+  height: 40px;
+  width: 100%;
+  background-color: var(--skeleton-pulse);
+  border-radius: 8px;
+  animation: pulse 1.5s infinite;
+}
+
+.actionsSkeleton {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.buttonSkeleton {
+  width: 100px;
+  height: 36px;
+  background-color: var(--skeleton-pulse);
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+@media (max-width: 900px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+  }
+}

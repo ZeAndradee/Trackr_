@@ -1,0 +1,147 @@
+.bar {
+  display: flex;
+  padding: 6px 12px;
+  border-radius: var(--border-radius);
+}
+
+.inline {
+  width: min(100%, 480px);
+  margin: 10px auto 16px;
+}
+
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.transport {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: var(--theater-text, var(--text-color));
+  cursor: pointer;
+  opacity: 0.85;
+  transition:
+    opacity 0.2s,
+    background 0.2s;
+}
+
+.btn:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+:global(.light-mode) .btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  background: none;
+}
+
+.playBtn {
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+}
+
+.volumeWrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  gap: 4px;
+}
+
+.volumeSlider {
+  display: flex;
+  align-items: center;
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  position: relative;
+  height: 34px;
+  transition:
+    width 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.volumeWrapper:hover .volumeSlider,
+.volumeWrapper:focus-within .volumeSlider {
+  width: 72px;
+  opacity: 1;
+}
+
+.volumeBarArea {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  margin: 0 5px;
+}
+
+.volumeThumb {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--theater-text, var(--text-color));
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.volumeTrack {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+:global(.light-mode) .volumeTrack {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.volumeFilled {
+  height: 100%;
+  background: var(--theater-text, var(--text-color));
+  border-radius: 2px;
+}
+
+.volumeInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.volumeInput::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+}

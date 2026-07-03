@@ -1,0 +1,769 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding-bottom: 200px;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+
+.headerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    var(--background-color) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 40px;
+}
+
+.headerInfo {
+  justify-content: center;
+}
+
+.subtitleWrapper {
+  display: block;
+  width: 100%;
+}
+
+.albumCoverWrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.albumCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trackInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 10px;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.trackTitle {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.releaseYear {
+  font-size: 1rem;
+  color: var(--text-secondary-color);
+  font-weight: 400;
+}
+
+.artistName {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.artistLink {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.albumLink {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.albumLink:hover {
+  text-decoration: underline;
+}
+
+.albumCoverWrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.albumCoverOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 4px solid var(--primary-color);
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: 12px;
+}
+
+.albumCoverWrapper:hover .albumCoverOverlay {
+  opacity: 1;
+}
+
+.albumName {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  font-weight: 500;
+  margin: 0;
+}
+
+.albumRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 1.2rem;
+  color: var(--text-secondary-color);
+  margin: 0;
+}
+
+.separator {
+  color: var(--text-secondary-color);
+  font-size: 1.2rem;
+  display: inline;
+  margin: 0 10px;
+}
+
+.mainContent {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.reviewSection {
+  flex: 1;
+  min-width: 300px; /* Ensure it doesn't get too small before wrapping */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sidebar {
+  width: 350px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: sticky;
+  top: var(--header-offset, 100px);
+}
+
+.reviewContentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userAvatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.statusWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userName {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.userName:hover {
+  text-decoration: underline;
+}
+
+.ratingDate {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+}
+
+.reviewText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+.reviewText p {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  overflow: visible;
+  white-space: pre-wrap;
+}
+
+.interactions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  gap: 24px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.actionButton:hover {
+  color: var(--text-color);
+}
+
+.actionButton.liked {
+  color: #e91e63;
+}
+
+.shareButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.shareButton:hover {
+  color: var(--primary-color);
+}
+
+.sidebarSection {
+  padding: 24px;
+}
+
+.sidebarTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebarList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.sidebarItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebarItemImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.sidebarItemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.sidebarItemTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebarItemSubtitle {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: auto;
+    min-height: auto;
+  }
+
+  .headerOverlay {
+    position: relative;
+    height: auto;
+    align-items: center;
+    padding-bottom: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(17, 18, 20, 0.85) 0%,
+      var(--background-color) 100%
+    );
+  }
+
+  .albumCoverWrapper {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .trackInfo {
+    align-items: center;
+    width: 100%;
+  }
+
+  .titleContainer {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .trackTitle {
+    font-size: 2rem;
+  }
+
+  .artistName {
+    margin-top: 12px;
+  }
+
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .reviewSection {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .reviewText {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nameRow {
+    gap: 8px;
+  }
+
+  .sidebar {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+
+.divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+}
+
+.compactLogItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.compactLogItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.compactLogImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.compactLogInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.compactLogHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.compactLogTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compactLogRating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.compactLogArtist {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.readMoreButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-left: 5px;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.readMoreButton:hover {
+  color: var(--primary-color);
+}
+
+.commentsSection {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.commentsSection h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.inputContainer {
+  position: relative;
+  width: 100%;
+}
+
+.commentInput {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  min-height: 80px;
+  resize: none;
+  font-family: inherit;
+  overflow: hidden;
+  display: block;
+}
+
+.commentInput:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.commentInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.charCounter {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 0.75rem;
+  color: var(--text-secondary-color);
+  pointer-events: none;
+  transition: color 0.2s ease;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.limitReached {
+  color: #ff5050;
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 100%;
+}
+
+.cancelButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.cancelButton:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.postButton:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+.commentsList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.commentItem {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-bottom: 1px solid var(--dark-border);
+  gap: 8px;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.commentInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentUser {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.commentDate {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.commentContent {
+  margin: 0;
+  padding-left: 44px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.deleteComment {
+  align-self: flex-start;
+  margin-left: 44px;
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 4px 0;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.deleteComment:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.replies {
+  margin-top: 12px;
+  margin-left: 44px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.replyItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.replyItem .commentContent,
+.emptyReviewCta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 30px;
+  background-color: var(--dark-bg-color);
+  border-radius: 12px;
+  border: 1px dashed var(--dark-border2);
+  text-align: center;
+  width: 100%;
+}
+
+.emptyReviewCta p {
+  color: var(--text-secondary-color);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Log Header Hover Effect */
+.coverHover {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.coverHover:hover {
+  cursor: pointer;
+}
+
+.coverHover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--primary-color);
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  box-sizing: border-box;
+}
+
+.coverHover:hover::after {
+  opacity: 1;
+}
+
+.reviewGif {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-top: 8px;
+  display: block;
+}

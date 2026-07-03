@@ -1,0 +1,77 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-width: 0;
+  max-width: 100%;
+  flex-wrap: wrap;
+  line-height: 1.25;
+}
+
+.container.hero {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.hero .text {
+  display: inline;
+}
+
+.hero .tags {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.35em;
+}
+
+.text {
+  min-width: 0;
+  color: inherit;
+}
+
+.wrap {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  max-width: 100%;
+  display: inline-block;
+}
+
+.linked {
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.18em;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+}
+
+.linked:hover {
+  text-decoration-color: currentColor;
+}
+
+.empty {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.tags {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  flex-shrink: 0;
+}
+
+.hero .text {
+  flex: 0 1 auto;
+}

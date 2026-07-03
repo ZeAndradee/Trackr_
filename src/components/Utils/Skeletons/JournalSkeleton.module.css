@@ -1,0 +1,203 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.skeletonLoading {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 0;
+  gap: 1.5rem;
+}
+
+.skeletonImg {
+  width: 100%;
+  height: 100%;
+  background-color: var(--skeleton-pulse);
+  border-radius: 4px;
+}
+
+.skeletonStars {
+  width: 80px;
+  height: 15px;
+  background-color: var(--skeleton-pulse);
+  border-radius: 4px;
+}
+
+.shimmerText {
+  display: inline-block;
+  height: 12px;
+  width: 80%;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-shimmer-from) 0%,
+    var(--skeleton-shimmer-to) 50%,
+    var(--skeleton-shimmer-from) 100%
+  );
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  animation: textShimmer 2s infinite linear;
+}
+
+@keyframes textShimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+}
+
+.yearTag {
+  display: inline-block;
+  width: 50px;
+  height: 20px;
+  background-color: var(--skeleton-pulse);
+  border-radius: 4px;
+}
+
+.actionButton {
+  width: 24px;
+  height: 24px;
+  background-color: var(--skeleton-pulse);
+  border-radius: 50%;
+  margin: 0 4px;
+}
+
+.dayContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--skeleton-pulse);
+  border-radius: 50%;
+}
+
+.yearHeader.shimmerText {
+  height: 32px;
+  width: 100px;
+  margin: 1.5rem 0 1rem;
+  padding-left: 2.25rem;
+}
+
+.monthHeader.shimmerText {
+  height: 20px;
+  width: 120px;
+  margin-bottom: 0.5rem;
+  padding: 0 0 0.5rem 2.25rem;
+}
+
+.tableView {
+  width: 100%;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--skeleton-subtle-bg);
+}
+
+.tableHeader {
+  display: flex;
+  background-color: var(--skeleton-table-header);
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--dark-border);
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-secondary-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tableHeaderCell {
+  flex-shrink: 0;
+}
+
+.yearGroup {
+  margin-bottom: 2.5rem;
+}
+
+.monthGroup {
+  margin-bottom: 2rem;
+}
+
+.tableRow {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.25rem;
+  transition: all var(--transition-duration) ease;
+  border-bottom: 1px solid var(--skeleton-row-divider);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.tableCell {
+  flex-shrink: 0;
+}
+
+.dateColumn {
+  width: 55px;
+  text-align: center;
+}
+
+.trackColumn {
+  width: 35%;
+  min-width: 240px;
+}
+
+.artistColumn {
+  width: 25%;
+  min-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-secondary-color);
+  padding-right: 1rem;
+}
+
+.ratingColumn {
+  width: 120px;
+  text-align: center;
+}
+
+.moodColumn {
+  width: 110px;
+  text-align: center;
+}
+
+.actionsColumn {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 120px;
+}
+
+.trackInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.trackCover {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--skeleton-border);
+}
+
+.trackTitle {
+  font-weight: var(--font-weight-semi-bold);
+  font-size: 0.95rem;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

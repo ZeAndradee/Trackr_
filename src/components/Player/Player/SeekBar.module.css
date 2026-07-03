@@ -1,0 +1,98 @@
+.tooltipWrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100% !important;
+  z-index: 25;
+}
+
+.container {
+  position: relative;
+  height: 6px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.pip {
+  width: 100%;
+  height: 16px;
+  flex: none;
+  display: flex;
+  align-items: flex-end;
+}
+
+.pip .track {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.track {
+  width: 100%;
+  height: 3px;
+  background: var(--dark-border);
+  overflow: hidden;
+  pointer-events: none;
+  transition: height 0.15s ease;
+}
+
+.container:not(.pip) .track {
+  border-radius: 2px;
+}
+
+.container:hover .track {
+  height: 5px;
+}
+
+.pip:hover .track {
+  height: 5px;
+}
+
+.filled {
+  height: 100%;
+  background: var(--primary-color);
+  transition: width 0.1s linear;
+}
+
+.thumb {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.container:hover .thumb {
+  opacity: 1;
+}
+
+.pip .thumb {
+  top: auto;
+  bottom: 2.5px;
+  transform: translate(-50%, 50%);
+}
+
+.input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+}

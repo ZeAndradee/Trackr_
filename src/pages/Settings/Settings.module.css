@@ -1,0 +1,121 @@
+.page {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 48px;
+  width: 100%;
+  max-width: var(--app-max-width);
+  margin: 0 auto;
+  padding: 32px 0 80px 0;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebarTitle {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-color);
+  height: 64px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--dark-border2);
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: var(--border-radius);
+  color: var(--text-secondary-color);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: var(--font-weight-medium);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  cursor: pointer;
+}
+
+.navItem:hover {
+  background-color: var(--dark-bg-color);
+  color: var(--text-color);
+}
+
+.navItemActive {
+  background-color: var(--dark-bg-color);
+  color: var(--text-color);
+}
+
+.navItem svg {
+  flex-shrink: 0;
+}
+
+.content {
+  min-width: 0;
+  width: 100%;
+}
+
+.tabHeader {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--dark-border2);
+  box-sizing: border-box;
+}
+
+.tabTitle {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+  margin: 0;
+}
+
+.tabBody {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 880px) {
+  .page {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px 16px 80px;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .nav {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 4px;
+    padding-bottom: 8px;
+  }
+
+  .navItem {
+    white-space: nowrap;
+  }
+
+  .navItem span {
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,601 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.lyricsSidebarWrapper {
+  position: relative;
+}
+
+.lyricsSidebarContainer {
+  max-height: 500px;
+  overflow-y: auto;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+.syncButton {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--dark-bg-color);
+  border: 1px solid var(--dark-border2);
+  border-radius: 20px;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  z-index: 5;
+}
+
+.syncButton:hover {
+  background: var(--menu-hover);
+}
+
+.lyricsSidebarContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lyricsSidebarContainer::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.lyricsSidebarContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lyricsText {
+  white-space: pre-wrap;
+  color: var(--text-secondary-color);
+  font-size: calc(0.9rem * var(--lyrics-scale, 1));
+  line-height: 1.6;
+}
+
+.lyricLine {
+  border-radius: 4px;
+  color: var(--text-secondary-color);
+  font-size: calc(1rem * var(--lyrics-scale, 1));
+  line-height: 1.5;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 0 4px 4px 0;
+  opacity: 0.9;
+}
+
+.lyricLine:hover {
+  text-decoration: underline;
+  color: var(--text-primary-color);
+}
+
+.plainLine {
+  color: var(--text-color);
+  opacity: 1;
+  cursor: default;
+}
+
+.plainLine:hover {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.activeLine {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: calc(1.2rem * var(--lyrics-scale, 1));
+}
+
+.pastLine {
+  opacity: 0.4;
+}
+
+.primaryText {
+  display: block;
+}
+
+.secondaryText {
+  display: block;
+  font-size: 0.8em;
+  opacity: 0.4;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerButton {
+  border-radius: 6px;
+  color: var(--text-secondary-color);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  opacity: 0.5;
+  transition: all 0.15s;
+}
+
+.headerButton:hover {
+  background: var(--menu-hover);
+  color: var(--text-color);
+  opacity: 1;
+}
+
+.menuWrapper {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 280px;
+  background-color: var(--menu-bg);
+  border: 1px solid var(--dark-border);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 50;
+  filter: drop-shadow(var(--menu-shadow));
+  animation: fadeIn 0.2s ease;
+}
+
+.menuIcon {
+  flex-shrink: 0;
+  color: var(--text-secondary-color);
+}
+
+.menuFlag {
+  width: 18px;
+  height: 13px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.menuItem:hover {
+  background-color: var(--menu-hover);
+}
+
+.menuItemDisabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.menuItemDisabled:hover {
+  background-color: transparent;
+}
+
+.menuLabel {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 0.2s;
+  transform: rotate(0deg);
+  color: var(--text-secondary-color);
+}
+
+.chevronUp {
+  transform: rotate(90deg);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--dark-border);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--text-secondary-color);
+  border-radius: 50%;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(16px);
+  background-color: #ffffff;
+}
+
+.langList {
+  max-height: 220px;
+  overflow-y: auto;
+  border-top: 1px solid var(--dark-border);
+  padding: 4px;
+}
+
+.langList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.langList::-webkit-scrollbar-thumb {
+  background: var(--dark-border2);
+  border-radius: 2px;
+}
+
+.langFlag {
+  width: 20px;
+  height: 14px;
+  flex-shrink: 0;
+  border-radius: 2px;
+}
+
+.langLabel {
+  flex: 1;
+  min-width: 0;
+}
+
+.langOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary-color);
+  font-size: 0.8rem;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 6px;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.langOption:hover {
+  background: var(--menu-hover);
+  color: var(--text-color);
+}
+
+.langOptionActive {
+  background: var(--dark-bg-color);
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.noLyrics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.noLyricsIcon {
+  font-size: 2rem;
+  opacity: 0.6;
+}
+
+.noLyricsText {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  line-height: 1.6;
+  max-width: 300px;
+  opacity: 0.7;
+}
+
+.menuSeparator {
+  height: 1px;
+  background: var(--dark-border);
+  margin: 2px 0;
+}
+
+.sizeControl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.sizeButton {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid var(--dark-border);
+  background: var(--dark-bg-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sizeButton:hover:not(:disabled) {
+  background: var(--dark-bg-color);
+}
+
+.sizeButton:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.sizeValue {
+  font-size: 0.75rem;
+  color: var(--text-secondary-color);
+  min-width: 34px;
+  text-align: center;
+}
+
+.uniformSize .secondaryText {
+  font-size: 1em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.theaterColumn {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0 24px;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.theaterColumn::-webkit-scrollbar {
+  width: 6px;
+}
+
+.theaterColumn::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.theaterColumn::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--text-color) 20%, transparent);
+  border-radius: 3px;
+}
+
+.theaterColumn::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--text-color) 30%, transparent);
+}
+
+.theaterInner {
+  max-width: 720px;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-right: 24px;
+}
+
+.theaterHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-radius: 12px;
+  background: transparent;
+  transition:
+    background 0.3s ease,
+    padding 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.theaterHeaderStuck {
+  background: var(--dark-bg-color);
+  padding: 10px 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.theaterLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary-color);
+}
+
+.theaterMenuWrapper {
+  margin-left: auto;
+}
+
+.theaterToggleOption {
+  border-radius: 6px;
+  color: var(--text-color);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.theaterToggleOption:hover {
+  background: var(--menu-hover);
+}
+
+.theaterContainer {
+  flex: 1;
+}
+
+.theaterLyricLine {
+  color: var(--text-secondary-color);
+  font-size: calc(1.6rem * var(--lyrics-scale, 1));
+  line-height: 1.5;
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+  padding: 2px 0;
+}
+
+.theaterLyricLine:hover {
+  color: var(--text-color);
+  opacity: 1;
+}
+
+.theaterPlainLine {
+  color: var(--text-color);
+  opacity: 0.9;
+  cursor: default;
+}
+
+.theaterPlainLine:hover {
+  color: var(--text-color);
+  opacity: 1;
+}
+
+.theaterActiveLine {
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: calc(2.2rem * var(--lyrics-scale, 1));
+  opacity: 1;
+}
+
+.theaterPastLine {
+  opacity: 0.25;
+}
+
+.theaterLyricLine .secondaryText {
+  font-size: 0.55em;
+}
+
+.uniformSize .theaterLyricLine .secondaryText {
+  font-size: 1em;
+}
+
+.theaterSyncButton {
+  position: sticky;
+  bottom: 16px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--dark-bg-color);
+  border: 1px solid var(--dark-border2);
+  border-radius: 20px;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  z-index: 5;
+}
+
+.theaterSyncButton:hover {
+  background: var(--menu-hover);
+}
+
+.theaterNoLyrics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 80px 40px;
+  text-align: center;
+  flex: 1;
+}
+
+.theaterNoLyricsIcon {
+  font-size: 3rem;
+  opacity: 0.6;
+}
+
+.theaterNoLyricsText {
+  font-size: 1.2rem;
+  color: var(--text-secondary-color);
+  line-height: 1.6;
+  max-width: 400px;
+  opacity: 0.7;
+}
+
+.theaterColumn .menu,
+.theaterColumn .theaterSyncButton,
+.theaterColumn .theaterHeaderStuck {
+  --text-color: #f5f5f5;
+  --text-secondary-color: #c5c5c5;
+}
+
+:global(.light-mode) .theaterColumn .menu,
+:global(.light-mode) .theaterColumn .theaterSyncButton,
+:global(.light-mode) .theaterColumn .theaterHeaderStuck {
+  --text-color: #000000e6;
+  --text-secondary-color: #4e4e4e;
+}

@@ -1,0 +1,216 @@
+/* Info Tooltip Badge */
+.infoBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-color2);
+  background: var(--header-hover-bg);
+  color: var(--text-secondary-color);
+  cursor: help;
+  padding: 0;
+  line-height: 1;
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.infoBadge:hover,
+.infoBadge:focus-visible {
+  background: var(--header-active-bg);
+  color: var(--text-color);
+  border-color: var(--border-hover);
+  outline: none;
+}
+
+/* Generic Tooltip Styles */
+.tooltipWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+}
+
+.tooltipBubble {
+  position: absolute;
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--text-color);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
+  pointer-events: none;
+  z-index: 10000;
+  box-shadow: var(--header-dropdown-shadow, 0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+.followMouse {
+  position: fixed;
+  z-index: 1000;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.followMouse::after,
+.followMouse::before {
+  display: none;
+}
+
+/* Positions */
+/* .top styling is handled by JS Portal positioning */
+
+.top::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--dark-border) transparent transparent transparent;
+}
+
+.top::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -4px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: var(--dark-bg-color) transparent transparent transparent;
+  z-index: 1;
+}
+
+/* Track Details Tooltip Styles */
+.detailsTooltip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-radius: 0.5rem;
+  padding: 4px;
+  width: max-content;
+  max-width: 200px;
+  box-shadow: var(--header-dropdown-shadow, 0 4px 12px rgba(0, 0, 0, 0.5));
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.detailsTooltip.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-15px);
+}
+
+.detailsTooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--dark-border) transparent transparent transparent;
+}
+
+.detailsTooltip::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--dark-bg-color) transparent transparent transparent;
+  z-index: 1;
+}
+
+.tooltipContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.trackDateInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dateWrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.dateWrapper svg {
+  color: var(--text-secondary-color);
+}
+
+.dateText {
+  font-size: 0.75rem;
+  color: var(--text-secondary-color);
+  font-weight: 500;
+}
+
+/* Status Indicators */
+.statusIndicators {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.likedIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 4px;
+  color: var(--text-secondary-color);
+}
+
+/* Rating Styles */
+.ratingContainer {
+  flex-shrink: 0;
+}
+
+.ratingValue {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+}
+
+.ratingIcon {
+  margin-left: 2px;
+  margin-top: -2px;
+}
+
+.highRating {
+  color: var(--rating-high);
+}
+
+.mediumRating {
+  color: var(--rating-medium);
+}
+
+.lowRating {
+  color: var(--rating-low);
+}

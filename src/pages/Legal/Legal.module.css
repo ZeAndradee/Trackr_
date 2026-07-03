@@ -1,0 +1,238 @@
+.layoutContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.mainWrapper {
+  flex: 1;
+  display: flex;
+  max-width: 980px; /* Apple-like max-width */
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 20px;
+  gap: 60px;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: sticky;
+  top: var(--header-offset, 120px);
+}
+
+.sidebarLink {
+  display: block;
+  padding: 8px 0;
+  color: var(--text-secondary-color); /* Apple's gray */
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  border-right: 1px solid transparent; /* For layout stability if we add border later */
+}
+
+.sidebarLink:hover {
+  color: var(--text-color);
+}
+
+.sidebarLink.active {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+/* Content Area */
+.contentArea {
+  flex: 1;
+  min-width: 0;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-color);
+  letter-spacing: -0.02em;
+}
+
+.lastUpdated {
+  font-size: 0.9rem;
+  color: var(--text-secondary-color);
+  margin-bottom: 50px;
+  display: block;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  letter-spacing: -0.01em;
+}
+
+.section h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.section p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary-color); /* Lighter gray for dark mode readability */
+  margin-bottom: 20px;
+}
+
+.section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.section li {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-secondary-color);
+  margin-bottom: 10px;
+}
+
+.section strong {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+/* Contact Grid (for Support page) */
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.contactCard {
+  padding: 30px;
+  background-color: var(--dark-bg-color);
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.contactCard:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.contactLink {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--text-color);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid var(--text-secondary-color);
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+}
+
+.contactLink:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* FAQ Styles */
+.faqItem {
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 0;
+}
+
+.faqHeader {
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faqHeader h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.faqIcon {
+  color: var(--text-secondary-color);
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.faqIcon.open {
+  transform: rotate(180deg);
+  color: var(--text-color); /* Neutral color instead of primary */
+}
+
+.faqAnswer {
+  padding-bottom: 24px;
+  color: var(--text-secondary-color);
+  line-height: 1.6;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mainWrapper {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  .sidebarNav {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    gap: 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sidebarLink {
+    white-space: nowrap;
+    font-size: 0.9rem;
+    padding: 5px 0;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+}

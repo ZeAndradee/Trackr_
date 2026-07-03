@@ -1,0 +1,218 @@
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 250px;
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-radius: 24px;
+  overflow: visible;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  z-index: 100;
+  padding: 16px 0;
+}
+
+.dropdownOpen {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdownSection {
+  padding: 16px 12px;
+}
+
+.dropdownSection:first-child {
+  padding-top: 0;
+  padding-bottom: 19px;
+}
+
+.dropdownSection:last-child {
+  padding-bottom: 0;
+}
+
+.dropdownSection:not(:last-child) {
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 9px 16px;
+  color: var(--text-secondary-color);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.dropdownItem:hover {
+  background-color: var(--header-hover-bg, rgba(255, 255, 255, 0.05));
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+}
+
+.dropdownItemFooter {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  color: var(--text-secondary-color);
+}
+
+.dropdownTrailingIcon {
+  margin-left: auto;
+  color: var(--text-secondary-color);
+}
+
+.dropdownIcon {
+  color: currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  flex-shrink: 0;
+}
+
+.dropdownItemDisabled {
+  cursor: default;
+  position: relative;
+}
+
+.dropdownItemDisabled::after {
+  content: "Available Soon";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: var(--text-secondary-color);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* Profile Header */
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px 12px;
+  width: 100%;
+  box-sizing: border-box;
+  color: var(--text-color);
+}
+
+.profileHeaderInfo {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.profileHeaderTitle {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-color);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profileHeaderUsername {
+  font-size: 12px;
+  color: var(--text-secondary-color);
+  margin-top: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profileButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 12px 6px;
+}
+
+.profileActionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 9px 12px;
+  background-color: var(--header-hover-bg, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--dark-border);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.profileActionButton:hover {
+  background-color: var(--header-active-bg, rgba(255, 255, 255, 0.08));
+  border-color: var(--border-hover);
+}
+
+/* Status Toggle Row */
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 9px 16px;
+  color: var(--text-secondary-color);
+  font-size: 14px;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.statusName {
+  flex: 1;
+  transition: color 0.2s ease;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: currentColor;
+  flex-shrink: 0;
+  transition: color 0.25s ease;
+}
+
+.online {
+  color: var(--rating-high);
+}
+
+.invisible {
+  color: var(--text-secondary-color);
+}
+
+.mobileNavLinks {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .dropdown {
+    min-width: 250px;
+  }
+}

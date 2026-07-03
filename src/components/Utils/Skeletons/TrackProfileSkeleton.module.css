@@ -1,0 +1,415 @@
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeletonPulse {
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 0%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* Hero Item */
+.heroSkeleton {
+  position: relative;
+  min-height: 450px;
+  width: 100%;
+  background-color: var(--skeleton-card-bg);
+}
+
+.headerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(17, 18, 20, 0.4) 0%,
+    var(--background-color) 95%
+  );
+  z-index: 1;
+}
+
+.headerContent {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+  gap: 30px;
+  align-items: center;
+  z-index: 2;
+  min-height: 450px;
+}
+
+.coverWrapper {
+  flex-shrink: 0;
+  width: 260px;
+  height: 260px;
+}
+
+.coverSkeleton {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius2, 8px);
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 10px 0;
+}
+
+.infoLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.typeSkeleton {
+  height: 14px;
+  width: 60px;
+  border-radius: 4px;
+}
+
+.titleSkeleton {
+  height: 48px;
+  width: 60%;
+  border-radius: 8px;
+}
+
+.subtitleSkeleton {
+  height: 24px;
+  width: 40%;
+  border-radius: 4px;
+}
+
+.interactionBar {
+  margin-top: 10px;
+}
+
+.buttonSkeleton {
+  height: 40px;
+  width: 140px;
+  border-radius: 20px;
+}
+
+.infoRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.statsSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.statLineSkeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.statValueSkeleton {
+  height: 24px;
+  width: 30px;
+  border-radius: 4px;
+}
+
+.statLabelSkeleton {
+  height: 10px;
+  width: 50px;
+  border-radius: 4px;
+}
+
+.statSeparator {
+  width: 1px;
+  height: 43px;
+  background-color: var(--skeleton-stat-separator);
+}
+
+/* Content Tabs */
+.contentTabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid var(--skeleton-border);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 5px;
+}
+
+.tabButtonSkeleton {
+  height: 20px;
+  margin: 15px 10px;
+  border-radius: 4px;
+}
+
+.tabContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Social Tab Grid */
+.socialTab {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 375px;
+  gap: 48px;
+}
+
+.mainSocialContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.socialSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* Sections */
+.sectionSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sectionHeaderSkeleton {
+  height: 24px;
+  width: 200px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.trackListSkeleton {
+  display: flex;
+  flex-direction: column;
+}
+
+.trackItemSkeleton {
+  display: flex;
+  align-items: center;
+  padding: 12px 10px;
+  gap: 15px;
+  border-bottom: 1px solid var(--skeleton-pulse);
+}
+
+.trackNumberSkeleton {
+  height: 16px;
+  width: 16px;
+  border-radius: 4px;
+}
+
+.trackDetailsSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.trackNameSkeleton {
+  height: 16px;
+  width: 40%;
+  border-radius: 4px;
+}
+
+.trackArtistSkeleton {
+  height: 12px;
+  width: 25%;
+  border-radius: 4px;
+}
+
+.trackStatsSkeleton {
+  height: 14px;
+  width: 80px;
+  border-radius: 4px;
+}
+
+/* Reviews */
+.reviewListSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.reviewItemSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reviewHeaderSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatarSkeleton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.reviewAuthorSkeleton {
+  height: 16px;
+  width: 120px;
+  border-radius: 4px;
+}
+
+.reviewTextSkeleton {
+  height: 14px;
+  width: 100%;
+  border-radius: 4px;
+}
+
+/* Sidebar Sections */
+.youtubeSkeleton {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+}
+
+.sidebarSectionSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebarHeaderSkeleton {
+  height: 20px;
+  width: 150px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+.lyricsSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lyricsLineSkeleton {
+  height: 14px;
+  border-radius: 4px;
+}
+
+.detailsGridSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.detailItemSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detailLabelSkeleton {
+  height: 12px;
+  width: 60px;
+  border-radius: 4px;
+}
+
+.detailValueSkeleton {
+  height: 16px;
+  width: 100px;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .headerContent {
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  .info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .infoLeft,
+  .infoRight {
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  .textWrapper {
+    align-items: center;
+  }
+
+  .titleSkeleton,
+  .subtitleSkeleton {
+    margin: 0 auto;
+  }
+
+  .socialTab {
+    grid-template-columns: 1fr;
+  }
+
+  .contentTabs,
+  .tabContent {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .coverWrapper {
+    width: 220px;
+    height: 220px;
+  }
+
+  .titleSkeleton {
+    width: 80%;
+  }
+
+  .subtitleSkeleton {
+    width: 60%;
+  }
+}

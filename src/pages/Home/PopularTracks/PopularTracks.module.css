@@ -1,0 +1,301 @@
+.section {
+  border: 1px solid var(--dark-border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.1rem;
+
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.seeAll {
+  font-size: var(--font-size-minor);
+  color: var(--text-secondary-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.seeAll:hover {
+  color: var(--text-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.trackItem {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.trackItem:first-child {
+  padding-top: 0;
+}
+
+.trackItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.coverLink {
+  display: block;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.coverWrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.trackNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.trackName {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-color);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trackName:hover {
+  text-decoration: underline;
+}
+
+.rankBadge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  background: var(--dark-border2);
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-secondary-color);
+  line-height: 1;
+  padding: 3px 5px;
+}
+
+.movementIcon {
+  font-size: 0.55rem;
+}
+.moreButtonWrapper {
+  position: relative;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.moreButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+}
+
+.artistName {
+  font-size: var(--font-size-minor);
+  color: var(--text-secondary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.skeletonItem {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.skeletonItem:first-child {
+  padding-top: 0;
+}
+
+.skeletonItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.skeletonCover {
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  background: var(--skeleton-pulse);
+  animation: pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.skeletonContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.skeletonLine {
+  height: 13px;
+  width: 65%;
+  border-radius: 6px;
+  background: var(--skeleton-pulse);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonLineShort {
+  height: 11px;
+  width: 40%;
+  border-radius: 6px;
+  background: var(--skeleton-subtle-pulse);
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 4px;
+  }
+
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trackItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 130px;
+    max-width: 130px;
+    padding: 0;
+    border-bottom: none;
+    align-items: stretch;
+  }
+
+  .trackItem:first-child {
+    padding-top: 0;
+  }
+
+  .trackItem:last-child {
+    padding-bottom: 0;
+  }
+
+  .coverLink {
+    width: 100%;
+  }
+
+  .coverWrapper {
+    width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  .info {
+    gap: 2px;
+  }
+
+  .trackNameRow {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .trackName {
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .artistName {
+    font-size: 0.7rem;
+  }
+
+  .moreButtonWrapper {
+    display: none;
+  }
+
+  .skeletonItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 130px;
+    max-width: 130px;
+    padding: 0;
+    border-bottom: none;
+    grid-template-columns: none;
+  }
+
+  .skeletonCover {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+}
+
+@media (max-width: 768px) {
+  .trackItem {
+    min-width: 120px;
+    max-width: 120px;
+  }
+
+  .skeletonItem {
+    min-width: 120px;
+    max-width: 120px;
+  }
+}

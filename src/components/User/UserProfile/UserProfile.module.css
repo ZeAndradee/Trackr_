@@ -1,0 +1,139 @@
+.container {
+  width: 100%;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+.contentContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1rem auto;
+  position: relative;
+  z-index: 2;
+}
+
+.contentTabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid var(--dark-border);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tabButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px 10px;
+  position: relative;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.tabButton:hover {
+  color: var(--text-color);
+}
+
+.activeTab {
+  color: var(--text-color);
+}
+
+.activeTab::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 3px 3px 0 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  font-size: 1rem;
+  color: var(--text-secondary-color);
+}
+
+.marginBottom {
+  margin-bottom: 0.7rem;
+}
+
+.emptyOverview {
+  display: flex;
+  justify-content: center;
+  border-radius: 16px;
+}
+
+.emptyOverviewIcon {
+  width: 160px;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.profileReviewCover {
+  width: 70px;
+  height: 70px;
+}
+
+@media screen and (min-width: 1024px) {
+  .contentContainer {
+    margin: 2rem auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .main {
+    min-width: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contentContainer {
+    margin: 1rem auto;
+    padding: 0 14px;
+  }
+
+  .contentTabs {
+    padding: 0 14px;
+    gap: 12px;
+  }
+
+  .tabButton {
+    font-size: 14px;
+    padding: 14px 6px;
+  }
+
+  .layout {
+    gap: 1.25rem;
+  }
+
+  .main {
+    gap: 1.25rem;
+  }
+}

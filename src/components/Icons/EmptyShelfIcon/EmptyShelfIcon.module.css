@@ -1,0 +1,56 @@
+.svgContainer {
+  width: 100%;
+  max-width: 300px;
+  opacity: 0.6;
+}
+
+@keyframes snapLeft {
+  0%, 20% { transform: rotate(0deg); }
+  22% { transform: rotate(20deg); }
+  25%, 100% { transform: rotate(18deg); }
+}
+
+@keyframes snapRight {
+  0%, 20% { transform: rotate(0deg); }
+  22% { transform: rotate(-20deg); }
+  25%, 100% { transform: rotate(-18deg); }
+}
+
+@keyframes slideGroupLeft {
+  0%, 20% { transform: translateX(0); }
+  28%, 100% { transform: translateX(35px); }
+}
+
+@keyframes slideGroupRight {
+  0%, 20% { transform: translateX(0); }
+  28%, 100% { transform: translateX(-35px); }
+}
+
+@keyframes debrisDrop {
+  0%, 20% { opacity: 0; transform: translate(0, 0) rotate(0deg) scale(1); }
+  21% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+  50%, 100% { opacity: 0; transform: translate(0, 150px) rotate(80deg) scale(0.5); }
+}
+
+.shelfLeft {
+  transform-origin: 150px 250px;
+  animation: snapLeft 4.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.shelfRight {
+  transform-origin: 450px 250px;
+  animation: snapRight 4.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.recordsLeft {
+  animation: slideGroupLeft 4.5s cubic-bezier(0.3, 1, 0.5, 1) forwards;
+}
+
+.recordsRight {
+  animation: slideGroupRight 4.5s cubic-bezier(0.3, 1, 0.5, 1) forwards;
+}
+
+.debris {
+  transform-origin: 300px 250px;
+  animation: debrisDrop 4.5s ease-out forwards;
+}

@@ -1,0 +1,582 @@
+@font-face {
+  font-family: "Lust Display";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Lust-Display.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Lust Display";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/Lust-Display-Italic.otf") format("opentype");
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  width: 100%;
+  padding: 0.5rem 0 5rem;
+}
+
+.loadingHint {
+  font-size: 0.85rem;
+  color: var(--text-secondary-color);
+}
+
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.sectionMeta {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--text-secondary-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.bioSection {
+  position: relative;
+}
+
+.bioHeadline {
+  font-family: var(--about-display);
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  color: var(--text-color);
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 0.1em;
+  font-family: "Lust Display", serif;
+}
+
+.bioHeadlineAccent {
+  font-style: italic;
+  font-size: 1.8rem;
+
+  color: var(--primary-color);
+  font-family: "Lust Display", serif;
+}
+
+.bioBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  max-width: 64ch;
+}
+
+.bioParagraph {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-color);
+  margin: 0;
+  font-weight: 350;
+}
+
+.bioParagraph:first-child {
+  font-size: 1.1rem;
+}
+
+.bioReadMore {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  align-self: flex-start;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255, 255, 255, 0.2);
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+
+.bioReadMore:hover {
+  color: var(--text-color);
+  text-decoration-color: var(--text-color);
+}
+
+.bioSource {
+  font-size: 0.74rem;
+  color: var(--text-secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.bioSource a {
+  color: var(--text-secondary-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--text-secondary-color);
+}
+
+.bioSource a:hover {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.sourceDot {
+  margin: 0 8px;
+  opacity: 0.5;
+}
+
+/* ── Labels ─────────────────────────────────────────── */
+.labelsGrid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.labelItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: default;
+}
+
+.labelImageFallback {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  font-size: 2rem;
+  font-weight: 600;
+  border: 1px solid var(--dark-border);
+}
+
+.labelInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.labelName {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.labelStatus {
+  font-size: 0.7rem;
+  color: var(--text-secondary-color);
+  text-transform: uppercase;
+}
+
+.factsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fact {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--dark-border);
+}
+
+.factBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.factLabel {
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary-color);
+}
+
+.factValue {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  line-height: 1.35;
+}
+
+.factSub {
+  font-size: 0.78rem;
+  color: var(--text-secondary-color);
+  font-weight: 400;
+}
+
+.collabRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1.5rem 1rem;
+}
+
+.collabCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  cursor: default;
+}
+
+.collabAvatarWrap {
+  position: relative;
+  width: 84px;
+  height: 84px;
+}
+
+.collabAvatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--dark-border);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.collabFallback {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-color);
+  font-size: 1.8rem;
+  border: 2px solid var(--dark-border);
+}
+
+.collabCard:hover .collabAvatar {
+  border-color: var(--primary-color);
+}
+
+.collabName {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  line-height: 1.2;
+}
+
+.collabRole {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--text-secondary-color);
+  text-transform: uppercase;
+}
+
+.connectionsSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.treeLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary-color);
+  margin: 0.75rem 0;
+}
+
+.treeRow {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.treeNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 72px;
+  max-width: 90px;
+}
+
+.treeAvatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--dark-border);
+  background: var(--dark-bg-color);
+  flex-shrink: 0;
+}
+
+.treeAvatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.treeAvatarFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.treeNodeName {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-align: center;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.treeBranch {
+  width: 80%;
+  height: 64px;
+  position: relative;
+  margin: -2px 0;
+}
+
+.treeSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.treeLine {
+  stroke: var(--dark-border);
+  stroke-width: 1;
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.treeCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0.25rem 0;
+}
+
+.treeCenterAvatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+  overflow: hidden;
+  background: var(--dark-bg-color);
+  box-shadow: 0 0 24px rgba(var(--primary-color-rgb, 255, 255, 255), 0.15);
+}
+
+.treeCenterFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 2.2rem;
+  color: var(--text-color);
+}
+
+.treeCenterName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.chipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid var(--dark-border);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: default;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.chip:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.chipAccent {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.chipAccent:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.awardsGrid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.awardBadge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  width: 140px;
+}
+
+.awardBadgeIconWrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px solid var(--dark-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+
+.noiseOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.awardBadgeIcon {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.awardBadgeContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.awardBadgeTitle {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-color);
+  line-height: 1.25;
+}
+
+.awardBadgeNote {
+  font-size: 0.75rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.linksRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.linkPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid var(--dark-border);
+  border-radius: 999px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.linkPill:hover {
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.linkLabel {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.linkHost {
+  font-size: 0.72rem;
+  color: var(--text-secondary-color);
+}
+
+.linkIcon {
+  color: var(--text-secondary-color);
+  transition: color 0.2s ease;
+}
+
+.linkPill:hover .linkIcon {
+  color: var(--primary-color);
+}
+
+@media (max-width: 720px) {
+  .about {
+    gap: 3rem;
+  }
+
+  .treeRow {
+    gap: 1rem;
+  }
+
+  .treeBranch {
+    width: 95%;
+  }
+
+  .awardsGrid {
+    justify-content: center;
+  }
+}

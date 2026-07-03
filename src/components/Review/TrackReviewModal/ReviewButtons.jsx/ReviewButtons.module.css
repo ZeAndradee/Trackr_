@@ -1,0 +1,153 @@
+.ReviewButtons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(40, 40, 50, 0.95),
+    rgba(30, 30, 40, 0.9)
+  );
+  border-radius: 14px;
+  border: 1px solid rgba(40, 113, 255, 0.15);
+  box-shadow: none;
+  transition: border-color 0.2s ease;
+}
+
+.ReviewButtons:hover {
+  border-color: rgba(40, 113, 255, 0.25);
+  box-shadow: none;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.2s ease;
+  z-index: 1;
+  border: 1px solid transparent;
+}
+
+.iconContainer::after {
+  display: none;
+}
+
+.iconContainer:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: none;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.iconContainer:hover::after {
+  display: none;
+}
+
+.iconContainer:active {
+  transform: scale(0.98);
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.actionButton {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #e0e0e0;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+  min-width: 80px;
+}
+
+.actionButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: none;
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.actionButton:active {
+  transform: none;
+  background-color: var(--dark-border2);
+}
+
+.actionButton.active {
+  background: rgba(40, 113, 255, 0.1);
+  border-color: rgba(40, 113, 255, 0.3);
+}
+
+.actionButton.active:hover {
+  border-color: rgba(40, 113, 255, 0.5);
+  background: rgba(40, 113, 255, 0.15);
+}
+
+.icon {
+  font-size: 1.2rem;
+  color: #9e9ea7;
+  transition: color 0.2s ease;
+}
+
+.active .icon {
+  color: var(--primary-color, #2871ff);
+}
+
+.actionButton:hover .icon {
+  transform: none;
+}
+
+.buttonLabel {
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.active .buttonLabel {
+  color: var(--primary-color, #2871ff);
+}
+
+.actionButton.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.actionButton.disabled:hover {
+  transform: none;
+  box-shadow: none;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 480px) {
+  .buttonContainer {
+    flex-wrap: wrap;
+  }
+
+  .actionButton {
+    min-width: 70px;
+    padding: 10px 0;
+  }
+
+  .buttonLabel {
+    font-size: 0.8rem;
+  }
+}

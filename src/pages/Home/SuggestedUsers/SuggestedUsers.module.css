@@ -1,0 +1,279 @@
+.section {
+  border: 1px solid var(--dark-border);
+
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-semi-bold);
+}
+
+.scrollRow {
+  display: flex;
+  flex-direction: column;
+}
+
+.userCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.userCard:first-child {
+  padding-top: 0;
+}
+
+.userCard:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.coversGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.coverLink {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.coverItem {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 0;
+}
+
+.userBottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.userName {
+  font-size: 0.88rem;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-color);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userName:hover {
+  text-decoration: underline;
+}
+
+.userGenres {
+  font-size: var(--font-size-minor);
+  color: var(--text-secondary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.followBtn {
+  flex-shrink: 0;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: none;
+  background: var(--accent-color);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: var(--font-weight-semi-bold);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.followBtn:hover {
+  opacity: 0.85;
+}
+
+.followBtn.following {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary-color);
+}
+
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.skeletonCard:first-child {
+  padding-top: 0;
+}
+
+.skeletonCard:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.skeletonCovers {
+  width: 100%;
+  aspect-ratio: 4/1;
+  border-radius: 8px;
+  background: var(--shimmer-bg);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonBottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skeletonAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--shimmer-bg);
+  animation: pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.skeletonText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.skeletonName {
+  height: 13px;
+  width: 70%;
+  border-radius: 6px;
+  background: var(--shimmer-bg);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonGenres {
+  height: 10px;
+  width: 90%;
+  border-radius: 6px;
+  background: var(--shimmer-bg);
+  animation: pulse 1.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.skeletonBtn {
+  width: 64px;
+  height: 28px;
+  border-radius: 20px;
+  background: var(--shimmer-bg);
+  animation: pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .scrollRow {
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 4px;
+  }
+
+  .scrollRow::-webkit-scrollbar {
+    display: none;
+  }
+
+  .userCard {
+    min-width: 200px;
+    max-width: 200px;
+    padding: 0;
+    border-bottom: none;
+    background: var(--dark-bg-color);
+    border-radius: 12px;
+    padding: 12px;
+    flex-shrink: 0;
+  }
+
+  .userCard:first-child {
+    padding-top: 12px;
+  }
+
+  .userCard:last-child {
+    padding-bottom: 12px;
+  }
+
+  .coversGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    border-radius: 8px;
+  }
+
+  .userName {
+    font-size: 0.82rem;
+  }
+
+  .userGenres {
+    font-size: 0.7rem;
+  }
+
+  .userBottom button {
+    display: none;
+  }
+
+  .skeletonBtn {
+    display: none;
+  }
+
+  .skeletonCard {
+    min-width: 200px;
+    max-width: 200px;
+    padding: 12px;
+    border-bottom: none;
+    background: var(--dark-bg-color);
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .skeletonCard:first-child {
+    padding-top: 12px;
+  }
+
+  .skeletonCard:last-child {
+    padding-bottom: 12px;
+  }
+}

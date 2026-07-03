@@ -1,0 +1,58 @@
+.tracksGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  gap: 1rem;
+}
+
+.tracksGrid > * {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 964px) {
+  .tracksGrid {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tracksGrid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1rem;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tracksGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tracksGrid > * {
+    flex: 0 0 165px;
+    width: 165px;
+    min-width: 165px;
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 480px) {
+  .tracksGrid > * {
+    flex: 0 0 160px;
+    width: 160px;
+    min-width: 160px;
+  }
+}

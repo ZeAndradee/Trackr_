@@ -1,0 +1,205 @@
+.page {
+  position: relative;
+  width: 100%;
+}
+
+.blankSection {
+  height: 100svh;
+  width: 100%;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--app-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 4rem;
+  min-height: 100svh;
+  padding: 9.5rem 0 4rem;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 448px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.subtitle {
+  font-family: var(--font-family-base);
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--text-secondary-color);
+  max-width: 33rem;
+  margin: 0;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.loginBtn {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.loginBtn:hover {
+  background-color: #474747;
+}
+
+.loginBtn:active {
+  background-color: #2f2f2f;
+}
+
+/* ---------- 3D fanned deck ---------- */
+
+.heroRight {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 460px;
+  perspective: 1400px;
+}
+
+.deck {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  transform: rotateX(38deg) rotateZ(-32deg);
+  transform-style: preserve-3d;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  margin: -110px 0 0 -110px;
+  border-radius: var(--border-radius2);
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
+  will-change: transform;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card:nth-child(1) {
+  transform: translate3d(-150px, -150px, 0px);
+  opacity: 0.85;
+}
+
+.card:nth-child(2) {
+  transform: translate3d(-75px, -75px, 26px);
+  opacity: 0.92;
+}
+
+.card:nth-child(3) {
+  transform: translate3d(0, 0, 52px);
+  z-index: 3;
+}
+
+.card:nth-child(4) {
+  transform: translate3d(75px, 75px, 78px);
+}
+
+.card:nth-child(5) {
+  transform: translate3d(150px, 150px, 104px);
+}
+
+.deck:hover .card {
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+}
+
+.card:hover {
+  z-index: 10;
+  box-shadow: 0 50px 90px rgba(0, 0, 0, 0.7);
+}
+
+.card:nth-child(1):hover {
+  transform: translate3d(-150px, -150px, 60px);
+}
+.card:nth-child(2):hover {
+  transform: translate3d(-75px, -75px, 86px);
+}
+.card:nth-child(3):hover {
+  transform: translate3d(0, 0, 112px);
+}
+.card:nth-child(4):hover {
+  transform: translate3d(75px, 75px, 138px);
+}
+.card:nth-child(5):hover {
+  transform: translate3d(150px, 150px, 164px);
+}
+
+@media (max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    min-height: 0;
+    padding: 6rem 0 3rem;
+  }
+
+  .heroRight {
+    order: -1;
+    min-height: 380px;
+  }
+
+  .subtitle {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 6rem 16px 2.5rem;
+  }
+
+  .deck {
+    width: 240px;
+    height: 240px;
+  }
+
+  .card {
+    width: 170px;
+    height: 170px;
+    margin: -85px 0 0 -85px;
+  }
+}
+
+@media (max-width: 520px) {
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .ctaButtons > a,
+  .ctaButtons > button {
+    width: 100%;
+    justify-content: center;
+  }
+}

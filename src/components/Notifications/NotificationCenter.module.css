@@ -1,0 +1,365 @@
+.container {
+  position: relative;
+}
+
+.triggerButton {
+  background: none;
+  border: none;
+  color: var(--header-icon-color, var(--text-color));
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-duration);
+}
+
+.triggerButton:hover {
+  color: var(--primary-color);
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--rating-low);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: bold;
+  height: 16px;
+  min-width: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: -80px;
+  width: 500px;
+  max-width: 90vw;
+  background-color: var(--dark-bg-color);
+  border: 2px solid var(--dark-border);
+  border-radius: var(--border-radius2);
+  box-shadow: var(--card-shadow);
+  z-index: 1000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@media (min-width: 768px) {
+  .dropdown {
+    right: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--dark-border2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-bg-color);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color);
+}
+
+.markAllBtn {
+  font-size: 0.8125rem;
+  color: var(--text-secondary-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.markAllBtn:hover {
+  text-decoration: underline;
+  color: var(--text-color);
+}
+
+.list {
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: var(--dark-border);
+  border-radius: 3px;
+}
+
+.emptyState {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: var(--text-secondary-color);
+  font-size: var(--font-size-minor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--dark-border);
+  cursor: pointer;
+  transition:
+    background-color var(--transition-duration),
+    opacity var(--transition-duration);
+  position: relative;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item:hover {
+  background-color: var(--dark-border);
+}
+
+.unread::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 24px;
+  background-color: var(--primary-color);
+  border-radius: 0 4px 4px 0;
+}
+
+.read {
+  opacity: 1;
+}
+
+.read:hover {
+  opacity: 1;
+}
+
+.moreButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary-color);
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+  opacity: 1;
+}
+
+.moreButton:hover {
+  background-color: var(--dark-border);
+  color: var(--text-color);
+}
+
+.menuBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+.menu {
+  position: absolute;
+  right: 1rem;
+  top: 2.5rem;
+  background-color: var(--dark-bg-color);
+  border: 1px solid var(--dark-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+  padding: 4px;
+}
+
+.menuItem {
+  padding: 8px 12px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.menuItem:hover {
+  background-color: var(--dark-border2);
+}
+
+.menuItem.delete {
+  color: #ff4444;
+}
+
+.menuItem.delete:hover {
+  background-color: rgba(255, 68, 68, 0.1);
+}
+
+.avatarContainer {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.likeBadge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background-color: #e91e63; /* Pink from Tags.jsx */
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--dark-bg-color); /* Cutout effect */
+  font-size: 10px;
+  z-index: 10;
+}
+
+.albumCover {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.message {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.highlight {
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--text-color);
+}
+
+.time {
+  font-size: 0.75rem;
+  color: var(--text-secondary-color);
+}
+
+.followButtonContainer {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.followButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem !important; /* Adjusted to be slightly smaller than requested to fit notification but keep style */
+  height: 36px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 0.85rem !important;
+  color: var(--text-color);
+  border: 1px solid var(--dark-border);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-dark)
+  );
+  color: white;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.followButton.following {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  background-image: none;
+  color: var(--text-color);
+}
+
+.followButton.following:hover {
+  background: rgba(231, 76, 60, 0.15);
+  color: #fb5d4d;
+  border-color: rgba(231, 76, 60, 0.5);
+  transform: none;
+}
+
+.followSkeleton {
+  width: 80px;
+  height: 36px;
+  border-radius: 14px;
+  background-color: var(--hover-color);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.verifiedBadgeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.verifiedBadge {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(25, 118, 210, 0.1);
+  border-radius: 50%;
+  padding: 10px;
+}

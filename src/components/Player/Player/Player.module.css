@@ -1,0 +1,72 @@
+.pip {
+  position: fixed;
+  visibility: hidden;
+  z-index: 9989;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.floating {
+  width: 340px;
+  overflow: visible;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+.body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+.bodyTopSquare {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+.docked {
+  box-shadow: none;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  z-index: 10005 !important;
+  box-shadow: none !important;
+  visibility: visible !important;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.fullscreen .body {
+  border-radius: 0;
+}
+
+.resizeHandle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  z-index: 40;
+  cursor: ew-resize;
+}
+
+.rz_e {
+  right: -4px;
+}
+
+.rz_w {
+  left: -4px;
+}
+
